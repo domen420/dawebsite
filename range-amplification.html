@@ -1,0 +1,1052 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    /* Fixed-1920 scaling: viewport units default to the normal ones (phones);
+       computers get px values for the 1920 canvas from the script below. */
+    :root { --vh: 1vh; --dvh: 1dvh; --vw: 1vw; }
+    </style>
+    <script>
+    /* Fixed-1920 scaling (computers only): lay the page out at 1920px and zoom it to
+       fit the window. Phones and tablets are left exactly as the original site. */
+    (function () {
+        var W = 1920, root = document.documentElement;
+        var ua = navigator.userAgent || '';
+        var mobileUA = (navigator.userAgentData && navigator.userAgentData.mobile) ||
+            /Android|iPhone|iPad|iPod|Mobile|Silk|Kindle|Opera Mini|IEMobile/i.test(ua);
+        var iPadAsMac = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;
+        var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        // No touchscreen at all: certainly not a phone. With touch (e.g. touch
+        // laptops), also require a screen larger than any phone.
+        var noTouch = !(navigator.maxTouchPoints > 0);
+        var bigScreen = Math.max(screen.width || 0, screen.height || 0) >= 950;
+        var desktop = finePointer && !mobileUA && !iPadAsMac && (noTouch || bigScreen);
+        root.__scaled1920 = desktop;
+        if (!desktop) return;                       // phones/tablets: original site
+        root.classList.add('ui-scaled');
+        function fit() {
+            root.style.zoom = '';
+            var vw = root.clientWidth || window.innerWidth;   // excludes the scrollbar
+            var z = vw / W;
+            root.style.zoom = z;
+            root.style.setProperty('--vh', (window.innerHeight / z / 100) + 'px');
+            root.style.setProperty('--dvh', (window.innerHeight / z / 100) + 'px');
+            root.style.setProperty('--vw', (W / 100) + 'px');
+        }
+        fit();
+        window.addEventListener('resize', fit);
+        document.addEventListener('DOMContentLoaded', fit);
+    })();
+    </script>
+    <link rel="icon" type="image/png" href="images/favicon-32.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <title>Amplification &amp; DSP | D&amp;A Innovations</title>
+    <meta name="description" content="The DAP-8 8-channel amplifier with full system DSP: up to 2000 W per channel, FIR/IIR processing and multi-stage limiting to run complete D&amp;A stacks from 2U.">
+    <link rel="canonical" href="https://domen420.github.io/dainnovations/range-amplification.html">
+    <link rel="alternate" hreflang="en" href="https://domen420.github.io/dainnovations/range-amplification.html">
+    <link rel="alternate" hreflang="sl" href="https://domen420.github.io/dainnovations/sl/range-amplification.html">
+    <link rel="alternate" hreflang="x-default" href="https://domen420.github.io/dainnovations/range-amplification.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://domen420.github.io/dainnovations/range-amplification.html">
+    <meta property="og:title" content="Amplification &amp; DSP | D&amp;A Innovations">
+    <meta property="og:description" content="The DAP-8 8-channel amplifier with full system DSP: up to 2000 W per channel, FIR/IIR processing and multi-stage limiting to run complete D&amp;A stacks from 2U.">
+    <meta property="og:image" content="https://domen420.github.io/dainnovations/images/card-dap8.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://domen420.github.io/dainnovations/range-amplification.html">
+    <meta property="twitter:title" content="Amplification &amp; DSP | D&amp;A Innovations">
+    <meta property="twitter:description" content="The DAP-8 8-channel amplifier with full system DSP: up to 2000 W per channel, FIR/IIR processing and multi-stage limiting to run complete D&amp;A stacks from 2U.">
+    <meta property="twitter:image" content="https://domen420.github.io/dainnovations/images/card-dap8.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@300;400;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@300;400;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@300;400;700&display=swap"></noscript>
+    <style>
+        :root { --bg-primary: #121212; --bg-secondary: #0A0A0A; --accent: #FFFFFF; --text-white: #FFFFFF; --card-border: rgba(255, 255, 255, 0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-primary); color: var(--text-white); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 0.15em; color: #FFFFFF; }
+        nav { position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: rgba(10, 10, 10, 0.9); backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid var(--card-border); }
+        .logo-img { height: 50px; width: auto; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-item { position: relative; }
+        .nav-links a { text-decoration: none; color: var(--text-white); font-size: 0.8rem; font-weight: 300; transition: opacity 0.3s ease; text-transform: uppercase; letter-spacing: 0.1em; display: block; padding: 1rem 0; }
+        .nav-links a:hover { opacity: 0.7; }
+        .dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); background: var(--bg-secondary); border: 1px solid var(--card-border); min-width: 220px; opacity: 0; visibility: hidden; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .dropdown a { padding: 1rem 1.5rem; font-size: 0.7rem; border-bottom: 1px solid var(--card-border); text-align: center; }
+        .dropdown a:last-child { border-bottom: none; }
+        .page-header { padding: 6rem 5% 2rem; background: var(--bg-secondary); text-align: center; border-bottom: 1px solid var(--card-border); }
+        .page-header h1 { font-size: 3rem; font-weight: 300; }
+        .products-container { padding: 8rem 5%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 4rem; }
+        .product-card { background: var(--bg-secondary); border: 1px solid var(--card-border); padding: 2.5rem 2rem; text-align: center; transition: transform 0.3s ease, border-color 0.3s ease; text-decoration: none; display: block; }
+        .product-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .product-img { width: 100%; height: 250px; background-size: cover; background-position: center; margin-bottom: 2rem; border: 1px solid var(--card-border); transition: border-color 0.3s ease; }
+        .product-card:hover .product-img { border-color: var(--accent); }
+        .product-card h3 { font-size: 1.8rem; font-weight: 400; color: #FFFFFF; margin-bottom: 1.5rem; }
+        .product-card p { font-weight: 300; font-size: 0.95rem; color: #FFFFFF; line-height: 1.6; }
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
+        .menu-toggle .bar { width: 25px; height: 2px; background-color: var(--text-white); transition: 0.3s; }
+        @media (max-width: 992px) {
+            nav { padding: 1.5rem 5%; }
+            .nav-links { position: fixed; top: 80px; left: -100%; flex-direction: column; background: var(--bg-secondary); width: 100%; text-align: center; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.5); padding: 2rem 0; gap: 1rem; }
+            .nav-links.active { left: 0; }
+            .menu-toggle { display: flex; }
+            .dropdown { position: static; transform: none; opacity: 1; visibility: visible; box-shadow: none; display: none; background: #1a1a1a; }
+            .nav-item:hover .dropdown { display: block; }
+            .page-header h1 { font-size: 1.8rem !important; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    
+
+/* =========================================
+   Unified Luxury-Tech Footer Styles (Compact)
+   ========================================= */
+.site-footer {
+    background: #080808 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #999999 !important;
+    font-family: 'Inter', sans-serif !important;
+    padding: 2.2rem 0 0 0 !important;
+    margin-top: 3rem !important;
+    width: 100% !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    display: block !important;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5% 1.8rem 5%;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 2.2rem;
+    box-sizing: border-box;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand-link {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    text-decoration: none;
+}
+
+.footer-logo-img {
+    height: 30px;
+    width: auto;
+    display: block;
+    filter: brightness(1.2);
+}
+
+.footer-tagline {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: #777777;
+    margin-bottom: 0.75rem;
+    font-weight: 300;
+    max-width: 270px;
+}
+
+.footer-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #999999;
+}
+
+.status-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #4ade80;
+    box-shadow: 0 0 6px rgba(74, 222, 128, 0.6);
+    display: inline-block;
+}
+
+.footer-heading {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+    color: #ffffff !important;
+    margin-bottom: 0.9rem !important;
+    position: relative;
+    padding-bottom: 0.35rem;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 18px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.footer-menu {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.footer-menu li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.footer-menu a {
+    color: #888888 !important;
+    text-decoration: none !important;
+    font-size: 0.78rem !important;
+    font-weight: 300 !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
+    display: inline-block !important;
+    padding: 0 !important;
+    letter-spacing: 0.02em !important;
+    text-transform: none !important;
+}
+
+.footer-menu a:hover {
+    color: #ffffff !important;
+    transform: translateX(3px);
+    opacity: 1 !important;
+}
+
+.footer-email {
+    color: #b0b0b0 !important;
+    font-family: monospace !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.03em !important;
+    margin-top: 0.3rem;
+}
+
+.footer-location {
+    margin-top: 0.8rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.7rem;
+}
+
+.footer-location span {
+    color: #555555;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.62rem;
+    display: block;
+    margin-bottom: 0.1rem;
+}
+
+.footer-location p {
+    color: #999999;
+    font-weight: 300;
+    margin: 0;
+}
+
+.footer-bottom {
+    background: #040404;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 0.9rem 0;
+    width: 100%;
+}
+
+.footer-bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.footer-copy {
+    font-size: 0.7rem;
+    color: #555555;
+    margin: 0;
+    letter-spacing: 0.03em;
+}
+
+.footer-bottom-links {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.footer-bottom-links a {
+    color: #555555 !important;
+    text-decoration: none !important;
+    font-size: 0.7rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    transition: color 0.2s ease !important;
+    padding: 0 !important;
+}
+
+.footer-bottom-links a:hover {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+.footer-bottom-links .sep {
+    color: #333333;
+    font-size: 0.65rem;
+}
+
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        padding-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 580px) {
+    .site-footer {
+        padding-top: 2rem !important;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+    }
+    .footer-tagline {
+        max-width: 100%;
+    }
+    .footer-bottom-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
+
+
+        /* Active Nav Link */
+        .nav-links a.active {
+            color: #ffffff;
+            font-weight: 500;
+            position: relative;
+        }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #ffffff;
+            box-shadow: 0 0 8px rgba(255,255,255,0.6);
+        }
+
+        /* Principle Deep Dive Section */
+        .principle-section {
+            padding: 5rem 5%;
+            background: #0d0d0d;
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+        .principle-box {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .principle-kicker {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: #c0c0c0;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        .principle-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+        .principle-box p {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Category CTA */
+        .range-cta-bar {
+            padding: 5rem 5%;
+            background: #080808;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .range-cta-box {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .range-cta-box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        .range-cta-box p {
+            color: #888888;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        .btn-cta {
+            padding: 0.9rem 2.2rem;
+            border: 1px solid #ffffff;
+            background: transparent;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .btn-cta:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+    
+
+/* =======================================================
+   COMPREHENSIVE MOBILE OPTIMIZATIONS (Smartphones & Tablets)
+   ======================================================= */
+@media (max-width: 992px) {
+    nav {
+        padding: 0.9rem 5% !important;
+        height: 70px !important;
+        box-sizing: border-box !important;
+    }
+    .logo-img {
+        height: 38px !important;
+        width: auto !important;
+    }
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 44px !important;
+        height: 44px !important;
+        cursor: pointer !important;
+        gap: 5px !important;
+        z-index: 1002 !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .menu-toggle .bar {
+        width: 24px !important;
+        height: 2px !important;
+        background-color: #ffffff !important;
+        transition: transform 0.3s ease, opacity 0.2s ease !important;
+        border-radius: 2px !important;
+        display: block !important;
+    }
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg) !important;
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0 !important;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg) !important;
+    }
+    .nav-links {
+        position: fixed !important;
+        top: 70px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: calc(calc(100 * var(--vh)) - 70px) !important;
+        height: calc(calc(100 * var(--dvh)) - 70px) !important;
+        background: rgba(8, 8, 8, 0.98) !important;
+        backdrop-filter: blur(25px) !important;
+        -webkit-backdrop-filter: blur(25px) !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        padding: 1.5rem 6% 3.5rem !important;
+        gap: 0.15rem !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        transform: translateY(-100%) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease !important;
+        z-index: 1001 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9) !important;
+        box-sizing: border-box !important;
+    }
+    .nav-links.active {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+    .nav-item {
+        width: 100% !important;
+        position: static !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    }
+    .nav-links a {
+        padding: 0.85rem 0.5rem !important;
+        font-size: 0.82rem !important;
+        letter-spacing: 0.12em !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        min-height: 44px !important;
+        text-align: left !important;
+        color: #ffffff !important;
+    }
+    .nav-links a.active {
+        color: #ffffff !important;
+        font-weight: 600 !important;
+    }
+    /* Mobile Submenu for Products */
+    .dropdown {
+        position: static !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        box-shadow: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 4px !important;
+        margin: 0.1rem 0 0.8rem !important;
+        padding: 0.25rem 0 !important;
+        min-width: unset !important;
+    }
+    .dropdown a {
+        padding: 0.65rem 1rem !important;
+        font-size: 0.72rem !important;
+        color: #999999 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.08em !important;
+        text-align: left !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+        min-height: 40px !important;
+    }
+    .dropdown a:last-child {
+        border-bottom: none !important;
+    }
+    .dropdown a:hover, .dropdown a:active {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.06) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: calc(100 * var(--vw)) !important;
+        -webkit-text-size-adjust: 100%;
+    }
+    .hero {
+        min-height: calc(85 * var(--vh)) !important;
+        height: auto !important;
+        padding: 6.5rem 5% 3.5rem !important;
+    }
+    .page-header {
+        padding: 6rem 5% 2.5rem !important;
+    }
+    .page-header h1, .hero h1 {
+        font-size: clamp(1.65rem, calc(5.5 * var(--vw)), 2.3rem) !important;
+        line-height: 1.25 !important;
+        letter-spacing: 0.08em !important;
+    }
+    .page-header p, .hero p {
+        font-size: 0.92rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 2rem !important;
+        padding: 0 0.2rem !important;
+    }
+    .hero-buttons, .hero .btn-group {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.8rem !important;
+    }
+    .hero .btn, .btn-cta, .submit-btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+    .section, .container, .products-container, .services-section, .gallery-section, .specs-section, .principle-section, .range-cta-bar, .guarantee-section {
+        padding: 3.5rem 5% !important;
+        box-sizing: border-box !important;
+    }
+    .section-header {
+        margin-bottom: 2.5rem !important;
+    }
+    .section-header h2 {
+        font-size: 1.5rem !important;
+    }
+    .grid, .gallery-grid, .guarantee-grid, .steps-grid, .services-grid, .apps-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.6rem !important;
+    }
+    /* Horizontal Swipeable Category Filter on Products Page */
+    .filter-nav-wrap {
+        top: 70px !important;
+        padding: 0.75rem 0 !important;
+    }
+    .filter-pills {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 0 5% !important;
+        gap: 0.5rem !important;
+        justify-content: flex-start !important;
+        scrollbar-width: none !important;
+    }
+    .filter-pills::-webkit-scrollbar {
+        display: none !important;
+    }
+    .filter-pill {
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+        padding: 0.45rem 0.95rem !important;
+        font-size: 0.68rem !important;
+    }
+    /* Product Cards & Images */
+    .product-card {
+        padding: 1.8rem 1.4rem !important;
+    }
+    .product-img {
+        height: 200px !important;
+    }
+    /* Product Detail Enhancements */
+    .breadcrumb-nav {
+        padding: 5.5rem 5% 0.75rem !important;
+        font-size: 0.65rem !important;
+        flex-wrap: wrap !important;
+        gap: 0.35rem !important;
+        line-height: 1.5 !important;
+    }
+    .product-main {
+        padding: 0.8rem 5% 2.5rem !important;
+        flex-direction: column !important;
+        gap: 1.8rem !important;
+    }
+    .slider-container, .product-info {
+        flex: 1 1 100% !important;
+        min-width: 100% !important;
+        width: 100% !important;
+    }
+    .main-img-box {
+        height: 290px !important;
+    }
+    .thumbnails {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        flex-wrap: nowrap !important;
+        padding-bottom: 0.4rem !important;
+        scrollbar-width: none !important;
+        gap: 0.6rem !important;
+    }
+    .thumbnails::-webkit-scrollbar {
+        display: none !important;
+    }
+    .thumb {
+        width: 68px !important;
+        min-width: 68px !important;
+        height: 50px !important;
+        flex-shrink: 0 !important;
+    }
+    .actions-group, .product-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        width: 100% !important;
+    }
+    .actions-group .btn, .product-actions .btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+    /* Specs Grid */
+    .specs-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.2rem !important;
+    }
+    /* Applications Rows */
+    .app-row, .app-row.reverse {
+        flex-direction: column !important;
+        text-align: left !important;
+        padding: 2.8rem 0 !important;
+        gap: 1.5rem !important;
+    }
+    .app-image {
+        width: 100% !important;
+        height: 230px !important;
+    }
+    /* Service Cards */
+    .service-card, .service-home-card, .info-card {
+        padding: 2.2rem 1.5rem !important;
+    }
+    /* Inputs & Forms (16px font-size prevents iOS Safari zoom) */
+    input[type="text"], input[type="email"], select, textarea {
+        font-size: 16px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 0.9rem 1rem !important;
+    }
+    .btn, .submit-btn, .btn-cta {
+        min-height: 46px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-img-box {
+        height: 240px !important;
+    }
+    .stats-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    .stat-val {
+        font-size: 2rem !important;
+    }
+    .gallery-item {
+        height: 210px !important;
+    }
+    .card-innov {
+        height: 270px !important;
+        padding: 1.6rem 1.2rem !important;
+    }
+    .info-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+}
+
+
+
+        /* Nav: Contact link + Get a Quote button */
+        .nav-links { align-items: center; }
+        .nav-links a { white-space: nowrap; }
+        .nav-links a.nav-quote {
+            border: 1px solid var(--accent);
+            padding: 0.6rem 1.2rem;
+            letter-spacing: 0.15em;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .nav-links a.nav-quote:hover {
+            background: var(--accent);
+            color: var(--bg-secondary);
+            opacity: 1;
+        }
+        @media (max-width: 1699px) and (min-width: 1400px) {
+            .nav-links { gap: 1.2rem; }
+            .nav-links a { letter-spacing: 0.08em; }
+        }
+        @media (max-width: 1399px) and (min-width: 993px) {
+            .nav-links { gap: 1.1rem; }
+            .nav-links a { font-size: 0.7rem; letter-spacing: 0.06em; }
+            .nav-links a.nav-quote { padding: 0.55rem 0.9rem; letter-spacing: 0.1em; }
+            .nav-links .nav-contact { display: none; }
+            .logo-img { height: 40px; }
+        }
+        @media (max-width: 1149px) and (min-width: 993px) {
+            .nav-links { gap: 0.7rem; }
+            .nav-links a { font-size: 0.65rem; letter-spacing: 0.04em; }
+            .nav-links a.nav-quote { padding: 0.45rem 0.7rem; }
+            .nav-lang .lang-current, .nav-lang .lang-sep { font-size: 0.65rem; }
+            .logo-img { height: 34px; }
+        }
+        @media (max-width: 992px) {
+            .nav-item.nav-quote-item { border-bottom: none !important; margin-top: 1.2rem; }
+            .nav-links a.nav-quote {
+                justify-content: center !important;
+                text-align: center !important;
+                border: 1px solid #ffffff !important;
+                padding: 0.85rem 1rem !important;
+            }
+        }
+
+/* Compact headings (2026-10-03): page-title banners and section headings ~30{'top': '6rem', 'h2': '.section-header h2, .include-header h2, .cta-band h2, .notes-inner > h2, .gallery-section > h2, .deployments-head h2, .range-header h2, .principle-text h2, .principle-box h2, .about-text h2, .guarantee-header h2, .section-head h2, .process-header h2, .specs-section h2, .details-section h2'}maller */
+.page-header { padding-top: 6rem !important; padding-bottom: 1.5rem !important; }
+.page-header h1 { font-size: 2.1rem !important; margin-bottom: 0.6rem !important; }
+.page-header.hero-enhanced { min-height: calc(44 * var(--vh)) !important; padding: 7.5rem 5% 4rem !important; }
+.hero-title h1 { font-size: clamp(1.5rem, calc(3.5 * var(--vw)), 2.5rem) !important; }
+.section-header h2, .include-header h2, .cta-band h2, .notes-inner > h2, .gallery-section > h2, .deployments-head h2, .range-header h2, .principle-text h2, .principle-box h2, .about-text h2, .guarantee-header h2, .section-head h2, .process-header h2, .specs-section h2, .details-section h2 { font-size: 1.4rem !important; }
+@media (max-width: 768px) {
+    .page-header { padding-top: 5.5rem !important; padding-bottom: 1.4rem !important; }
+    .page-header h1, .hero-title h1 { font-size: 1.25rem !important; }
+    .page-header.hero-enhanced { min-height: calc(40 * var(--vh)) !important; padding: 6rem 5% 2.5rem !important; }
+    .section-header h2, .include-header h2, .cta-band h2, .notes-inner > h2, .gallery-section > h2, .deployments-head h2, .range-header h2, .principle-text h2, .principle-box h2, .about-text h2, .guarantee-header h2, .section-head h2, .process-header h2, .specs-section h2, .details-section h2 { font-size: 1.2rem !important; }
+}
+
+/* Language switcher (EN / SL) */
+.nav-links .nav-lang { display: flex; align-items: center; gap: 0.35rem; }
+.nav-lang .lang-current { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; color: #ffffff; }
+.nav-lang .lang-sep { font-size: 0.8rem; color: #555555; }
+.nav-links .nav-lang a.lang-switch { color: #999999; }
+.nav-links .nav-lang a.lang-switch:hover { color: #ffffff; opacity: 1; }
+@media (max-width: 1399px) and (min-width: 993px) {
+    .nav-lang .lang-current, .nav-lang .lang-sep { font-size: 0.7rem; }
+}
+@media (max-width: 992px) {
+    .nav-links .nav-item.nav-lang { justify-content: center; gap: 0.6rem; padding: 1rem 0 !important; border-bottom: none !important; }
+    .nav-links .nav-lang a.lang-switch { display: inline !important; padding: 0 !important; min-height: 0 !important; color: #999999 !important; }
+}
+</style>
+    <style>
+    /* Reserve the scrollbar so the zoom factor never changes when a page scrolls. */
+    :root.ui-scaled { scrollbar-gutter: stable; }
+    /* Home hero: at least one window tall, but never shorter than its content, so a
+       short or zoomed window can't push the badge and headline under the fixed nav.
+       Equal top/bottom padding keeps the content centred where it was. */
+    :root.ui-scaled .hero { height: auto; min-height: calc(100 * var(--vh)); padding-top: 110px; padding-bottom: 110px; box-sizing: border-box; }
+    /* Footer bottom links wrap instead of running off narrow windows. */
+    :root.ui-scaled .footer-bottom-links { flex-wrap: wrap; justify-content: center; row-gap: 0.4rem; }
+    /* Services hero title: room for the glyphs inside its slide-in clipping frame. */
+    :root.ui-scaled .hero-title { padding: 0.08em 0 0.12em; }
+    </style>
+    <script>
+    (function () {
+        if (!document.documentElement.__scaled1920) return;     // phones: untouched
+        var W = 1920;
+        function widthOnly(text) {
+            return /\((?:min|max)-width:\s*\d+px\)/.test(text) &&
+                !/,|\b(?:not|only|print)\b|(?:min|max)-(?!width)|orientation|hover|pointer|resolution/.test(text);
+        }
+        function matchesAt(text) {
+            var lo = 0, hi = 1e9, re = /\((min|max)-width:\s*(\d+)px\)/g, m;
+            while ((m = re.exec(text))) {
+                if (m[1] === 'min') lo = Math.max(lo, +m[2]); else hi = Math.min(hi, +m[2]);
+            }
+            return lo <= W && W <= hi;
+        }
+        function walk(rules) {
+            for (var i = 0; i < rules.length; i++) {
+                var r = rules[i];
+                if (r.media && r.cssRules) {
+                    var t = r.media.mediaText;
+                    if (widthOnly(t)) r.media.mediaText = matchesAt(t) ? 'all' : 'not all';
+                    walk(r.cssRules);
+                }
+            }
+        }
+        for (var s = 0; s < document.styleSheets.length; s++) {
+            try { walk(document.styleSheets[s].cssRules); } catch (e) { /* cross-origin sheet (fonts) */ }
+        }
+    })();
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="D&A Innovations Logo - High-End Audio Systems" class="logo-img"></a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links">
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item">
+                <a href="products.html" class="active">Products</a>
+                <div class="dropdown">
+                    <a href="products.html#point-source">Point Source</a>
+                    <a href="products.html#entry-horns">Multiple Entry Horns</a>
+                    <a href="products.html#servo-subs">Subwoofers</a>
+                    <a href="products.html#amplification">Amplification</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="applications.html">Applications</a></li>
+            <li class="nav-item"><a href="services.html">Services</a></li>
+            <li class="nav-item"><a href="buy.html">Buy</a></li>
+            <li class="nav-item">
+                <a href="rent.html">Rent</a>
+                <div class="dropdown">
+                    <a href="rent.html#custom-rental-systems">Custom Rental Systems</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="gallery.html">Gallery</a>
+                <div class="dropdown">
+                    <a href="gallery.html#system-gallery">System Gallery</a>
+                    <a href="gallery.html#event-gallery">Event Gallery &amp; Videos</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="about.html">About Us</a></li>
+            <li class="nav-item nav-contact"><a href="contact.html">Contact</a></li>
+            <li class="nav-item nav-quote-item"><a href="contact.html" class="nav-quote">Get a Quote</a></li>
+            <li class="nav-item nav-lang"><span class="lang-current" aria-current="true">EN</span><span class="lang-sep" aria-hidden="true">/</span><a href="sl/range-amplification.html" class="lang-switch" hreflang="sl" lang="sl" aria-label="Slovenščina">SL</a></li>
+        </ul>
+    </nav>
+    <div class="page-header"><h1>Amplification</h1></div>
+    <main class="products-container"><div class="grid">
+        <a href="speakers/DAP-8.html" class="product-card"><div class="product-img" style="background-image: url('images/card-dap8.jpg'); background-position: center top;"></div><h3>DAP-8</h3><p>D&A custom 8-channel amplifier with full system DSP. Up to 2000 W per channel and FIR/IIR processing in 2U.</p></a>
+    </div></main>
+
+    <section class="principle-section">
+        <div class="principle-box">
+            <span class="principle-kicker">Transparent Power & DSP</span>
+            <h2>High-Damping & Linear-Phase Control</h2>
+            <p>Raw power is meaningless without control. Our amplifiers feature damping factors exceeding 2000 to maintain iron-fisted transducer control. Combined with 96kHz FIR DSP processing, phase response remains flat across the audible spectrum while multi-stage limiters guarantee driver safety under continuous touring loads.</p>
+        </div>
+    </section>
+
+    <section class="range-cta-bar">
+        <div class="range-cta-box">
+            <h3>Bespoke Acoustical Integration</h3>
+            <p>Our engineering team designs custom arrays, dedicated flyware, and room-specific DSP presets for residential and commercial venues.</p>
+            <a href="contact.html" class="btn-cta">Consult with Our Lab</a>
+        </div>
+    </section>
+    
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <a href="index.html" class="footer-brand-link">
+                    <img src="images/logo.png" alt="D&A Innovations" class="footer-logo-img" loading="lazy">
+                </a>
+                <p class="footer-tagline">Precision point-source speakers, multiple entry horns, and subwoofers engineered in Ljubljana, Slovenia.</p>
+                <div class="footer-status">
+                    <span class="status-dot"></span> Acoustic Systems Lab
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Acoustic Systems</h4>
+                <ul class="footer-menu">
+                    <li><a href="products.html">All Products</a></li>
+                    <li><a href="products.html#point-source">Point Source</a></li>
+                    <li><a href="products.html#entry-horns">Multiple Entry Horns</a></li>
+                    <li><a href="products.html#servo-subs">Subwoofers</a></li>
+                    <li><a href="products.html#amplification">Amplification & DSP</a></li>
+                    <li><a href="technology.html">Engineering Technology</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Services & Solutions</h4>
+                <ul class="footer-menu">
+                    <li><a href="services.html">Acoustic CAD & Simulation</a></li>
+                    <li><a href="services.html">Bespoke Manufacturing</a></li>
+                    <li><a href="services.html">DSP Tuning & Calibration</a></li>
+                    <li><a href="applications.html">Pro Audio & Cinema</a></li>
+                    <li><a href="rent.html">System Rentals</a></li>
+                    <li><a href="gallery.html">Gallery &amp; Events</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Inquiries</h4>
+                <ul class="footer-menu">
+                    <li><a href="buy.html">Purchase & Direct Orders</a></li>
+                    <li><a href="about.html">About Us & Lab</a></li>
+                    <li><a href="contact.html">Contact Engineering</a></li>
+                    <li><a href="faq.html">Technical FAQ</a></li>
+                    <li><a href="downloads.html">Spec Sheet Downloads</a></li>
+                    <li><a href="mailto:info@dainnovations.com" class="footer-email">info@dainnovations.com</a></li>
+                </ul>
+                <div class="footer-location">
+                    <span>Lab Location:</span>
+                    <p>Ljubljana, Slovenia, EU</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p class="footer-copy">&copy; 2026 D&A Innovations. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="index.html">Home</a>
+                    <span class="sep">&middot;</span>
+                    <a href="products.html">Products</a>
+                    <span class="sep">&middot;</span>
+                    <a href="services.html">Services</a>
+                    <span class="sep">&middot;</span>
+                    <a href="gallery.html">Gallery</a>
+                    <span class="sep">&middot;</span>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        if (!menuToggle || !navLinks) return;
+
+        function toggleMenu(open) {
+            const isOpen = typeof open === 'boolean' ? open : !navLinks.classList.contains('active');
+            navLinks.classList.toggle('active', isOpen);
+            menuToggle.classList.toggle('active', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Close menu when tapping any navigation link
+        navLinks.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                toggleMenu(false);
+            });
+        });
+
+        // Close menu when tapping outside
+        document.addEventListener('click', function(e) {
+            if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                toggleMenu(false);
+            }
+        });
+
+        // Close menu on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                toggleMenu(false);
+            }
+        });
+    })();
+    </script>
+
+</body>
+</html>
+
+
+

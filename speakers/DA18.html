@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    /* Fixed-1920 scaling: viewport units default to the normal ones (phones);
+       computers get px values for the 1920 canvas from the script below. */
+    :root { --vh: 1vh; --dvh: 1dvh; --vw: 1vw; }
+    </style>
+    <script>
+    /* Fixed-1920 scaling (computers only): lay the page out at 1920px and zoom it to
+       fit the window. Phones and tablets are left exactly as the original site. */
+    (function () {
+        var W = 1920, root = document.documentElement;
+        var ua = navigator.userAgent || '';
+        var mobileUA = (navigator.userAgentData && navigator.userAgentData.mobile) ||
+            /Android|iPhone|iPad|iPod|Mobile|Silk|Kindle|Opera Mini|IEMobile/i.test(ua);
+        var iPadAsMac = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;
+        var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        // No touchscreen at all: certainly not a phone. With touch (e.g. touch
+        // laptops), also require a screen larger than any phone.
+        var noTouch = !(navigator.maxTouchPoints > 0);
+        var bigScreen = Math.max(screen.width || 0, screen.height || 0) >= 950;
+        var desktop = finePointer && !mobileUA && !iPadAsMac && (noTouch || bigScreen);
+        root.__scaled1920 = desktop;
+        if (!desktop) return;                       // phones/tablets: original site
+        root.classList.add('ui-scaled');
+        function fit() {
+            root.style.zoom = '';
+            var vw = root.clientWidth || window.innerWidth;   // excludes the scrollbar
+            var z = vw / W;
+            root.style.zoom = z;
+            root.style.setProperty('--vh', (window.innerHeight / z / 100) + 'px');
+            root.style.setProperty('--dvh', (window.innerHeight / z / 100) + 'px');
+            root.style.setProperty('--vw', (W / 100) + 'px');
+        }
+        fit();
+        window.addEventListener('resize', fit);
+        document.addEventListener('DOMContentLoaded', fit);
+    })();
+    </script>
+    <link rel="icon" type="image/png" href="../images/favicon-32.png">
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+    <title>DA18 | Passive Tapped Horn Subwoofer | D&amp;A Innovations</title>
+    <meta name="description" content="DA18 passive tapped horn subwoofer with an 18Sound 18NTLW5000 driver: 32-80 Hz, 134 dB continuous and 140 dB peak, 1800 W AES. Full specs and PDF sheet.">
+    <meta name="keywords" content="DA18, tapped horn subwoofer, 18Sound 18NTLW5000, high output subwoofer, pro audio bass enclosure, D&A Innovations">
+    <link rel="canonical" href="https://domen420.github.io/dainnovations/speakers/DA18.html">
+    <link rel="alternate" hreflang="en" href="https://domen420.github.io/dainnovations/speakers/DA18.html">
+    <link rel="alternate" hreflang="sl" href="https://domen420.github.io/dainnovations/sl/speakers/DA18.html">
+    <link rel="alternate" hreflang="x-default" href="https://domen420.github.io/dainnovations/speakers/DA18.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://domen420.github.io/dainnovations/speakers/DA18.html">
+    <meta property="og:title" content="DA18 | Passive Tapped Horn Subwoofer | D&amp;A Innovations">
+    <meta property="og:description" content="DA18 passive tapped horn subwoofer with an 18Sound 18NTLW5000 driver: 32-80 Hz, 134 dB continuous and 140 dB peak, 1800 W AES. Full specs and PDF sheet.">
+    <meta property="og:image" content="https://domen420.github.io/dainnovations/images/da18-studio.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://domen420.github.io/dainnovations/speakers/DA18.html">
+    <meta property="twitter:title" content="DA18 | Passive Tapped Horn Subwoofer | D&amp;A Innovations">
+    <meta property="twitter:description" content="DA18 passive tapped horn subwoofer with an 18Sound 18NTLW5000 driver: 32-80 Hz, 134 dB continuous and 140 dB peak, 1800 W AES. Full specs and PDF sheet.">
+    <meta property="twitter:image" content="https://domen420.github.io/dainnovations/images/da18-studio.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Montserrat:wght@300;400;600;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Montserrat:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Montserrat:wght@300;400;600;700&display=swap"></noscript>
+    <style>
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #0A0A0A;
+            --accent: #FFFFFF;
+            --accent-silver: #C0C0C0;
+            --text-white: #FFFFFF;
+            --text-gray: #A0A0A0;
+            --card-border: rgba(255, 255, 255, 0.1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+        }
+        .logo-img { height: 50px; width: auto; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-item { position: relative; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-white);
+            font-size: 0.8rem;
+            font-weight: 300;
+            transition: opacity 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+            padding: 1rem 0;
+        }
+        .nav-links a:hover { opacity: 0.7; }
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .dropdown a {
+            padding: 1rem 1.5rem;
+            font-size: 0.7rem;
+            border-bottom: 1px solid var(--card-border);
+            text-align: center;
+        }
+        .dropdown a:last-child { border-bottom: none; }
+
+        /* Main Product Layout */
+        .product-main {
+            padding: 10rem 5% 4rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .slider-container {
+            flex: 1.2;
+            min-width: 320px;
+        }
+        .main-img-box {
+            width: 100%;
+            height: 480px;
+            background: #0d0d0d;
+            border: 1px solid var(--card-border);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+            transition: opacity 0.4s ease;
+        }
+        .main-img-box img.active { display: block; }
+        .thumbnails {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.2rem;
+        }
+        .thumb {
+            width: 90px;
+            height: 65px;
+            border: 1px solid var(--card-border);
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s, border-color 0.3s;
+            background: #1a1a1a;
+            overflow: hidden;
+        }
+        .thumb.active, .thumb:hover {
+            opacity: 1;
+            border-color: var(--accent);
+        }
+        .thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+        .product-info {
+            flex: 1;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent-silver);
+            margin-bottom: 1rem;
+        }
+        .product-info h1 {
+            font-size: clamp(2rem, calc(4 * var(--vw)), 3rem);
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+        .product-info .subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-silver);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+        .product-info p {
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            color: #d1d1d1;
+            font-size: 0.95rem;
+        }
+        .actions-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 1rem 2rem;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .btn:hover {
+            background: var(--accent);
+            color: var(--bg-secondary);
+        }
+        .btn-outline {
+            border-color: rgba(255,255,255,0.3);
+            color: var(--text-white);
+        }
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background: rgba(255,255,255,0.05);
+            color: var(--accent);
+        }
+
+        /* Specifications Grid */
+        .specs-section {
+            padding: 6rem 5%;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+        .specs-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .specs-section h2 {
+            margin-bottom: 3.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+            font-weight: 300;
+        }
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2.5rem;
+        }
+        .spec-item {
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 1.2rem;
+        }
+        .spec-label {
+            font-size: 0.7rem;
+            color: var(--accent-silver);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .spec-value {
+            font-weight: 300;
+            font-size: 1.05rem;
+            color: var(--text-white);
+        }
+
+        /* Mechanical Details */
+        .details-section {
+            padding: 6rem 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .details-section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            text-align: center;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .detail-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+            padding: 2.5rem 2rem;
+            border-radius: 4px;
+        }
+        .detail-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--accent-silver);
+        }
+        .detail-card p {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            letter-spacing: 0.2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+        }
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .footer-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        .footer-links a:hover { opacity: 1; }
+        .copyright {
+            color: var(--text-white);
+            font-size: 0.7rem;
+            width: 100%;
+            text-align: center;
+            margin-top: 2rem;
+            opacity: 0.5;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Mobile Responsive */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
+        .menu-toggle .bar { width: 25px; height: 2px; background-color: var(--text-white); transition: 0.3s; }
+        @media (max-width: 992px) {
+            nav { padding: 1.5rem 5%; }
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--bg-secondary);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+                padding: 2rem 0;
+                gap: 1rem;
+            }
+            .nav-links.active { left: 0; }
+            .menu-toggle { display: flex; }
+            .dropdown {
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                box-shadow: none;
+                display: none;
+                background: #1a1a1a;
+            }
+            .nav-item:hover .dropdown { display: block; }
+            .product-main { padding: 7rem 5% 2rem; }
+            .main-img-box { height: 350px; }
+        }
+    
+
+/* =========================================
+   Unified Luxury-Tech Footer Styles (Compact)
+   ========================================= */
+.site-footer {
+    background: #080808 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #999999 !important;
+    font-family: 'Inter', sans-serif !important;
+    padding: 2.2rem 0 0 0 !important;
+    margin-top: 3rem !important;
+    width: 100% !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    display: block !important;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5% 1.8rem 5%;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 2.2rem;
+    box-sizing: border-box;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand-link {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    text-decoration: none;
+}
+
+.footer-logo-img {
+    height: 30px;
+    width: auto;
+    display: block;
+    filter: brightness(1.2);
+}
+
+.footer-tagline {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: #777777;
+    margin-bottom: 0.75rem;
+    font-weight: 300;
+    max-width: 270px;
+}
+
+.footer-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #999999;
+}
+
+.status-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #4ade80;
+    box-shadow: 0 0 6px rgba(74, 222, 128, 0.6);
+    display: inline-block;
+}
+
+.footer-heading {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+    color: #ffffff !important;
+    margin-bottom: 0.9rem !important;
+    position: relative;
+    padding-bottom: 0.35rem;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 18px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.footer-menu {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.footer-menu li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.footer-menu a {
+    color: #888888 !important;
+    text-decoration: none !important;
+    font-size: 0.78rem !important;
+    font-weight: 300 !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
+    display: inline-block !important;
+    padding: 0 !important;
+    letter-spacing: 0.02em !important;
+    text-transform: none !important;
+}
+
+.footer-menu a:hover {
+    color: #ffffff !important;
+    transform: translateX(3px);
+    opacity: 1 !important;
+}
+
+.footer-email {
+    color: #b0b0b0 !important;
+    font-family: monospace !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.03em !important;
+    margin-top: 0.3rem;
+}
+
+.footer-location {
+    margin-top: 0.8rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.7rem;
+}
+
+.footer-location span {
+    color: #555555;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.62rem;
+    display: block;
+    margin-bottom: 0.1rem;
+}
+
+.footer-location p {
+    color: #999999;
+    font-weight: 300;
+    margin: 0;
+}
+
+.footer-bottom {
+    background: #040404;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 0.9rem 0;
+    width: 100%;
+}
+
+.footer-bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.footer-copy {
+    font-size: 0.7rem;
+    color: #555555;
+    margin: 0;
+    letter-spacing: 0.03em;
+}
+
+.footer-bottom-links {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.footer-bottom-links a {
+    color: #555555 !important;
+    text-decoration: none !important;
+    font-size: 0.7rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    transition: color 0.2s ease !important;
+    padding: 0 !important;
+}
+
+.footer-bottom-links a:hover {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+.footer-bottom-links .sep {
+    color: #333333;
+    font-size: 0.65rem;
+}
+
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        padding-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 580px) {
+    .site-footer {
+        padding-top: 2rem !important;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+    }
+    .footer-tagline {
+        max-width: 100%;
+    }
+    .footer-bottom-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
+
+
+        .breadcrumb-nav {
+            padding: 6.5rem 5% 1rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #777777;
+        }
+        .breadcrumb-nav a {
+            color: #999999;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .breadcrumb-nav a:hover { color: #ffffff; }
+        .breadcrumb-nav .sep { color: #444444; }
+        .breadcrumb-nav .curr { color: #d1d1d1; }
+        .product-main { padding-top: 1.5rem !important; }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.25s ease;
+            font-size: 1rem;
+        }
+        .slider-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000000;
+        }
+        .slider-btn.prev { left: 1rem; }
+        .slider-btn.next { right: 1rem; }
+    
+
+/* =======================================================
+   COMPREHENSIVE MOBILE OPTIMIZATIONS (Smartphones & Tablets)
+   ======================================================= */
+@media (max-width: 992px) {
+    nav {
+        padding: 0.9rem 5% !important;
+        height: 70px !important;
+        box-sizing: border-box !important;
+    }
+    .logo-img {
+        height: 38px !important;
+        width: auto !important;
+    }
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 44px !important;
+        height: 44px !important;
+        cursor: pointer !important;
+        gap: 5px !important;
+        z-index: 1002 !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .menu-toggle .bar {
+        width: 24px !important;
+        height: 2px !important;
+        background-color: #ffffff !important;
+        transition: transform 0.3s ease, opacity 0.2s ease !important;
+        border-radius: 2px !important;
+        display: block !important;
+    }
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg) !important;
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0 !important;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg) !important;
+    }
+    .nav-links {
+        position: fixed !important;
+        top: 70px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: calc(calc(100 * var(--vh)) - 70px) !important;
+        height: calc(calc(100 * var(--dvh)) - 70px) !important;
+        background: rgba(8, 8, 8, 0.98) !important;
+        backdrop-filter: blur(25px) !important;
+        -webkit-backdrop-filter: blur(25px) !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        padding: 1.5rem 6% 3.5rem !important;
+        gap: 0.15rem !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        transform: translateY(-100%) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease !important;
+        z-index: 1001 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9) !important;
+        box-sizing: border-box !important;
+    }
+    .nav-links.active {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+    .nav-item {
+        width: 100% !important;
+        position: static !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    }
+    .nav-links a {
+        padding: 0.85rem 0.5rem !important;
+        font-size: 0.82rem !important;
+        letter-spacing: 0.12em !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        min-height: 44px !important;
+        text-align: left !important;
+        color: #ffffff !important;
+    }
+    .nav-links a.active {
+        color: #ffffff !important;
+        font-weight: 600 !important;
+    }
+    /* Mobile Submenu for Products */
+    .dropdown {
+        position: static !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        box-shadow: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 4px !important;
+        margin: 0.1rem 0 0.8rem !important;
+        padding: 0.25rem 0 !important;
+        min-width: unset !important;
+    }
+    .dropdown a {
+        padding: 0.65rem 1rem !important;
+        font-size: 0.72rem !important;
+        color: #999999 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.08em !important;
+        text-align: left !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+        min-height: 40px !important;
+    }
+    .dropdown a:last-child {
+        border-bottom: none !important;
+    }
+    .dropdown a:hover, .dropdown a:active {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.06) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: calc(100 * var(--vw)) !important;
+        -webkit-text-size-adjust: 100%;
+    }
+    .hero {
+        min-height: calc(85 * var(--vh)) !important;
+        height: auto !important;
+        padding: 6.5rem 5% 3.5rem !important;
+    }
+    .page-header {
+        padding: 6rem 5% 2.5rem !important;
+    }
+    .page-header h1, .hero h1 {
+        font-size: clamp(1.65rem, calc(5.5 * var(--vw)), 2.3rem) !important;
+        line-height: 1.25 !important;
+        letter-spacing: 0.08em !important;
+    }
+    .page-header p, .hero p {
+        font-size: 0.92rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 2rem !important;
+        padding: 0 0.2rem !important;
+    }
+    .hero-buttons, .hero .btn-group {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.8rem !important;
+    }
+    .hero .btn, .btn-cta, .submit-btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+    .section, .container, .products-container, .services-section, .gallery-section, .specs-section, .principle-section, .range-cta-bar, .guarantee-section {
+        padding: 3.5rem 5% !important;
+        box-sizing: border-box !important;
+    }
+    .section-header {
+        margin-bottom: 2.5rem !important;
+    }
+    .section-header h2 {
+        font-size: 1.5rem !important;
+    }
+    .grid, .gallery-grid, .guarantee-grid, .steps-grid, .services-grid, .apps-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.6rem !important;
+    }
+    /* Horizontal Swipeable Category Filter on Products Page */
+    .filter-nav-wrap {
+        top: 70px !important;
+        padding: 0.75rem 0 !important;
+    }
+    .filter-pills {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 0 5% !important;
+        gap: 0.5rem !important;
+        justify-content: flex-start !important;
+        scrollbar-width: none !important;
+    }
+    .filter-pills::-webkit-scrollbar {
+        display: none !important;
+    }
+    .filter-pill {
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+        padding: 0.45rem 0.95rem !important;
+        font-size: 0.68rem !important;
+    }
+    /* Product Cards & Images */
+    .product-card {
+        padding: 1.8rem 1.4rem !important;
+    }
+    .product-img {
+        height: 200px !important;
+    }
+    /* Product Detail Enhancements */
+    .breadcrumb-nav {
+        padding: 5.5rem 5% 0.75rem !important;
+        font-size: 0.65rem !important;
+        flex-wrap: wrap !important;
+        gap: 0.35rem !important;
+        line-height: 1.5 !important;
+    }
+    .product-main {
+        padding: 0.8rem 5% 2.5rem !important;
+        flex-direction: column !important;
+        gap: 1.8rem !important;
+    }
+    .slider-container, .product-info {
+        flex: 1 1 100% !important;
+        min-width: 100% !important;
+        width: 100% !important;
+    }
+    .main-img-box {
+        height: 290px !important;
+    }
+    .thumbnails {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        flex-wrap: nowrap !important;
+        padding-bottom: 0.4rem !important;
+        scrollbar-width: none !important;
+        gap: 0.6rem !important;
+    }
+    .thumbnails::-webkit-scrollbar {
+        display: none !important;
+    }
+    .thumb {
+        width: 68px !important;
+        min-width: 68px !important;
+        height: 50px !important;
+        flex-shrink: 0 !important;
+    }
+    .actions-group, .product-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        width: 100% !important;
+    }
+    .actions-group .btn, .product-actions .btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+    /* Specs Grid */
+    .specs-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.2rem !important;
+    }
+    /* Applications Rows */
+    .app-row, .app-row.reverse {
+        flex-direction: column !important;
+        text-align: left !important;
+        padding: 2.8rem 0 !important;
+        gap: 1.5rem !important;
+    }
+    .app-image {
+        width: 100% !important;
+        height: 230px !important;
+    }
+    /* Service Cards */
+    .service-card, .service-home-card, .info-card {
+        padding: 2.2rem 1.5rem !important;
+    }
+    /* Inputs & Forms (16px font-size prevents iOS Safari zoom) */
+    input[type="text"], input[type="email"], select, textarea {
+        font-size: 16px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 0.9rem 1rem !important;
+    }
+    .btn, .submit-btn, .btn-cta {
+        min-height: 46px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-img-box {
+        height: 240px !important;
+    }
+    .stats-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    .stat-val {
+        font-size: 2rem !important;
+    }
+    .gallery-item {
+        height: 210px !important;
+    }
+    .card-innov {
+        height: 270px !important;
+        padding: 1.6rem 1.2rem !important;
+    }
+    .info-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+}
+
+
+        /* Nav: Contact link + Get a Quote button */
+        .nav-links { align-items: center; }
+        .nav-links a { white-space: nowrap; }
+        .nav-links a.nav-quote {
+            border: 1px solid var(--accent);
+            padding: 0.6rem 1.2rem;
+            letter-spacing: 0.15em;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .nav-links a.nav-quote:hover {
+            background: var(--accent);
+            color: var(--bg-secondary);
+            opacity: 1;
+        }
+        @media (max-width: 1699px) and (min-width: 1400px) {
+            .nav-links { gap: 1.2rem; }
+            .nav-links a { letter-spacing: 0.08em; }
+        }
+        @media (max-width: 1399px) and (min-width: 993px) {
+            .nav-links { gap: 1.1rem; }
+            .nav-links a { font-size: 0.7rem; letter-spacing: 0.06em; }
+            .nav-links a.nav-quote { padding: 0.55rem 0.9rem; letter-spacing: 0.1em; }
+            .nav-links .nav-contact { display: none; }
+            .logo-img { height: 40px; }
+        }
+        @media (max-width: 1149px) and (min-width: 993px) {
+            .nav-links { gap: 0.7rem; }
+            .nav-links a { font-size: 0.65rem; letter-spacing: 0.04em; }
+            .nav-links a.nav-quote { padding: 0.45rem 0.7rem; }
+            .nav-lang .lang-current, .nav-lang .lang-sep { font-size: 0.65rem; }
+            .logo-img { height: 34px; }
+        }
+        @media (max-width: 992px) {
+            .nav-item.nav-quote-item { border-bottom: none !important; margin-top: 1.2rem; }
+            .nav-links a.nav-quote {
+                justify-content: center !important;
+                text-align: center !important;
+                border: 1px solid #ffffff !important;
+                padding: 0.85rem 1rem !important;
+            }
+        }
+
+        picture { display: contents; }
+
+/* Compact headings (2026-10-03): page-title banners and section headings ~30{'top': '6rem', 'h2': '.section-header h2, .include-header h2, .cta-band h2, .notes-inner > h2, .gallery-section > h2, .deployments-head h2, .range-header h2, .principle-text h2, .principle-box h2, .about-text h2, .guarantee-header h2, .section-head h2, .process-header h2, .specs-section h2, .details-section h2'}maller */
+.page-header { padding-top: 6rem !important; padding-bottom: 1.5rem !important; }
+.page-header h1 { font-size: 2.1rem !important; margin-bottom: 0.6rem !important; }
+.page-header.hero-enhanced { min-height: calc(44 * var(--vh)) !important; padding: 7.5rem 5% 4rem !important; }
+.hero-title h1 { font-size: clamp(1.5rem, calc(3.5 * var(--vw)), 2.5rem) !important; }
+.section-header h2, .include-header h2, .cta-band h2, .notes-inner > h2, .gallery-section > h2, .deployments-head h2, .range-header h2, .principle-text h2, .principle-box h2, .about-text h2, .guarantee-header h2, .section-head h2, .process-header h2, .specs-section h2, .details-section h2 { font-size: 1.4rem !important; }
+@media (max-width: 768px) {
+    .page-header { padding-top: 5.5rem !important; padding-bottom: 1.4rem !important; }
+    .page-header h1, .hero-title h1 { font-size: 1.25rem !important; }
+    .page-header.hero-enhanced { min-height: calc(40 * var(--vh)) !important; padding: 6rem 5% 2.5rem !important; }
+    .section-header h2, .include-header h2, .cta-band h2, .notes-inner > h2, .gallery-section > h2, .deployments-head h2, .range-header h2, .principle-text h2, .principle-box h2, .about-text h2, .guarantee-header h2, .section-head h2, .process-header h2, .specs-section h2, .details-section h2 { font-size: 1.2rem !important; }
+}
+
+/* Language switcher (EN / SL) */
+.nav-links .nav-lang { display: flex; align-items: center; gap: 0.35rem; }
+.nav-lang .lang-current { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; color: #ffffff; }
+.nav-lang .lang-sep { font-size: 0.8rem; color: #555555; }
+.nav-links .nav-lang a.lang-switch { color: #999999; }
+.nav-links .nav-lang a.lang-switch:hover { color: #ffffff; opacity: 1; }
+@media (max-width: 1399px) and (min-width: 993px) {
+    .nav-lang .lang-current, .nav-lang .lang-sep { font-size: 0.7rem; }
+}
+@media (max-width: 992px) {
+    .nav-links .nav-item.nav-lang { justify-content: center; gap: 0.6rem; padding: 1rem 0 !important; border-bottom: none !important; }
+    .nav-links .nav-lang a.lang-switch { display: inline !important; padding: 0 !important; min-height: 0 !important; color: #999999 !important; }
+}
+</style>
+    <script type="application/ld+json" data-ld="product">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "DA18",
+      "description": "DA18 passive tapped horn subwoofer with an 18Sound 18NTLW5000 driver: 32-80 Hz, 134 dB continuous and 140 dB peak, 1800 W AES. Full specs and PDF sheet.",
+      "image": "https://domen420.github.io/dainnovations/images/da18-studio.jpg",
+      "url": "https://domen420.github.io/dainnovations/speakers/DA18.html",
+      "brand": {
+        "@type": "Brand",
+        "name": "D&A Innovations"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "@id": "https://domen420.github.io/dainnovations/#organization",
+        "name": "D&A Innovations",
+        "url": "https://domen420.github.io/dainnovations/"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Product Type",
+          "value": "Passive Tapped Horn Subwoofer"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Transducer",
+          "value": "18Sound 18NTLW5000 (18\" Neodymium)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Frequency Response",
+          "value": "32 – 80 Hz (-6 dB, processed)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Maximum SPL",
+          "value": "134 dB Continuous (140 dB Peak)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Power Handling",
+          "value": "1800 W AES / 3600 W Program"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Sensitivity",
+          "value": "101 dB @ 2.83 V / 1 m (half-space)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Nominal Impedance",
+          "value": "8 Ω"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Connectors",
+          "value": "2x Neutrik speakON NL4"
+        }
+      ],
+      "category": "Passive Tapped Horn Subwoofer"
+    }
+    </script>
+    <script type="application/ld+json" data-ld="breadcrumbs">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://domen420.github.io/dainnovations/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Products",
+          "item": "https://domen420.github.io/dainnovations/products.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Subwoofers",
+          "item": "https://domen420.github.io/dainnovations/products.html#servo-subs"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "DA18",
+          "item": "https://domen420.github.io/dainnovations/speakers/DA18.html"
+        }
+      ]
+    }
+    </script>
+    <style>
+    /* Reserve the scrollbar so the zoom factor never changes when a page scrolls. */
+    :root.ui-scaled { scrollbar-gutter: stable; }
+    /* Home hero: at least one window tall, but never shorter than its content, so a
+       short or zoomed window can't push the badge and headline under the fixed nav.
+       Equal top/bottom padding keeps the content centred where it was. */
+    :root.ui-scaled .hero { height: auto; min-height: calc(100 * var(--vh)); padding-top: 110px; padding-bottom: 110px; box-sizing: border-box; }
+    /* Footer bottom links wrap instead of running off narrow windows. */
+    :root.ui-scaled .footer-bottom-links { flex-wrap: wrap; justify-content: center; row-gap: 0.4rem; }
+    /* Services hero title: room for the glyphs inside its slide-in clipping frame. */
+    :root.ui-scaled .hero-title { padding: 0.08em 0 0.12em; }
+    </style>
+    <script>
+    (function () {
+        if (!document.documentElement.__scaled1920) return;     // phones: untouched
+        var W = 1920;
+        function widthOnly(text) {
+            return /\((?:min|max)-width:\s*\d+px\)/.test(text) &&
+                !/,|\b(?:not|only|print)\b|(?:min|max)-(?!width)|orientation|hover|pointer|resolution/.test(text);
+        }
+        function matchesAt(text) {
+            var lo = 0, hi = 1e9, re = /\((min|max)-width:\s*(\d+)px\)/g, m;
+            while ((m = re.exec(text))) {
+                if (m[1] === 'min') lo = Math.max(lo, +m[2]); else hi = Math.min(hi, +m[2]);
+            }
+            return lo <= W && W <= hi;
+        }
+        function walk(rules) {
+            for (var i = 0; i < rules.length; i++) {
+                var r = rules[i];
+                if (r.media && r.cssRules) {
+                    var t = r.media.mediaText;
+                    if (widthOnly(t)) r.media.mediaText = matchesAt(t) ? 'all' : 'not all';
+                    walk(r.cssRules);
+                }
+            }
+        }
+        for (var s = 0; s < document.styleSheets.length; s++) {
+            try { walk(document.styleSheets[s].cssRules); } catch (e) { /* cross-origin sheet (fonts) */ }
+        }
+    })();
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="../index.html"><img src="../images/logo.png" alt="D&A Innovations" class="logo-img"></a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links">
+            <li class="nav-item"><a href="../index.html">Home</a></li>
+            <li class="nav-item">
+                <a href="../products.html">Products</a>
+                <div class="dropdown">
+                    <a href="../products.html#point-source">Point Source</a>
+                    <a href="../products.html#entry-horns">Multiple Entry Horns</a>
+                    <a href="../products.html#servo-subs">Subwoofers</a>
+                    <a href="../products.html#amplification">Amplification</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="../applications.html">Applications</a></li>
+            <li class="nav-item"><a href="../services.html">Services</a></li>
+            <li class="nav-item"><a href="../buy.html">Buy</a></li>
+            <li class="nav-item">
+                <a href="../rent.html">Rent</a>
+                <div class="dropdown">
+                    <a href="../rent.html#custom-rental-systems">Custom Rental Systems</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="../gallery.html">Gallery</a>
+                <div class="dropdown">
+                    <a href="../gallery.html#system-gallery">System Gallery</a>
+                    <a href="../gallery.html#event-gallery">Event Gallery &amp; Videos</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="../about.html">About Us</a></li>
+            <li class="nav-item nav-contact"><a href="../contact.html">Contact</a></li>
+            <li class="nav-item nav-quote-item"><a href="../contact.html" class="nav-quote">Get a Quote</a></li>
+            <li class="nav-item nav-lang"><span class="lang-current" aria-current="true">EN</span><span class="lang-sep" aria-hidden="true">/</span><a href="../sl/speakers/DA18.html" class="lang-switch" hreflang="sl" lang="sl" aria-label="Slovenščina">SL</a></li>
+        </ul>
+    </nav>
+
+    
+    <div class="breadcrumb-nav">
+        <a href="../index.html">Home</a>
+        <span class="sep">/</span>
+        <a href="../products.html">Products</a>
+        <span class="sep">/</span>
+        <a href="../products.html#servo-subs">Subwoofers</a>
+        <span class="sep">/</span>
+        <span class="curr">DA18</span>
+    </div>
+    
+    <main class="product-main">
+        <div class="slider-container">
+            <div class="main-img-box" id="slider">
+                <button class="slider-btn prev" id="slider-prev">&#10094;</button>
+                <button class="slider-btn next" id="slider-next">&#10095;</button>
+                <picture><source srcset="../images/da18-studio-480.webp 480w, ../images/da18-studio-800.webp 800w, ../images/da18-studio-1200.webp 1200w, ../images/da18-studio.webp 1600w" sizes="(max-width: 768px) 90vw, 45vw" type="image/webp"><img src="../images/da18-studio.jpg" srcset="../images/da18-studio-480.jpg 480w, ../images/da18-studio-800.jpg 800w, ../images/da18-studio-1200.jpg 1200w, ../images/da18-studio.jpg 1600w" sizes="(max-width: 768px) 90vw, 45vw" alt="DA18 tapped horn subwoofer in matte black, three-quarter view of the horn mouth and 18-inch driver" class="active"></picture>
+                <picture><source srcset="../images/da18-front-studio-480.webp 480w, ../images/da18-front-studio-800.webp 800w, ../images/da18-front-studio-1200.webp 1200w, ../images/da18-front-studio.webp 1600w" sizes="(max-width: 768px) 90vw, 45vw" type="image/webp"><img src="../images/da18-front-studio.jpg" srcset="../images/da18-front-studio-480.jpg 480w, ../images/da18-front-studio-800.jpg 800w, ../images/da18-front-studio-1200.jpg 1200w, ../images/da18-front-studio.jpg 1600w" sizes="(max-width: 768px) 90vw, 45vw" alt="DA18 tapped horn subwoofer in matte black, front view"></picture>
+                <picture><source srcset="../images/system-stack-low-angle-480.webp 480w, ../images/system-stack-low-angle-800.webp 800w, ../images/system-stack-low-angle-1200.webp 1200w, ../images/system-stack-low-angle.webp 2040w" sizes="(max-width: 768px) 90vw, 45vw" type="image/webp"><img src="../images/system-stack-low-angle.jpg" srcset="../images/system-stack-low-angle-480.jpg 480w, ../images/system-stack-low-angle-800.jpg 800w, ../images/system-stack-low-angle-1200.jpg 1200w, ../images/system-stack-low-angle.jpg 2040w" sizes="(max-width: 768px) 90vw, 45vw" alt="D&A Innovations Transducer Detail"></picture>
+                <picture><source srcset="../images/system-stack-wide-bass-horns-480.webp 480w, ../images/system-stack-wide-bass-horns-800.webp 800w, ../images/system-stack-wide-bass-horns-1200.webp 1200w, ../images/system-stack-wide-bass-horns.webp 2040w" sizes="(max-width: 768px) 90vw, 45vw" type="image/webp"><img src="../images/system-stack-wide-bass-horns.jpg" srcset="../images/system-stack-wide-bass-horns-480.jpg 480w, ../images/system-stack-wide-bass-horns-800.jpg 800w, ../images/system-stack-wide-bass-horns-1200.jpg 1200w, ../images/system-stack-wide-bass-horns.jpg 2040w" sizes="(max-width: 768px) 90vw, 45vw" alt="D&A Innovations Enclosure Construction"></picture>
+                <picture><source srcset="../images/system-stack-low-angle-480.webp 480w, ../images/system-stack-low-angle-800.webp 800w, ../images/system-stack-low-angle-1200.webp 1200w, ../images/system-stack-low-angle.webp 2040w" sizes="(max-width: 768px) 90vw, 45vw" type="image/webp"><img src="../images/system-stack-low-angle.jpg" srcset="../images/system-stack-low-angle-480.jpg 480w, ../images/system-stack-low-angle-800.jpg 800w, ../images/system-stack-low-angle-1200.jpg 1200w, ../images/system-stack-low-angle.jpg 2040w" sizes="(max-width: 768px) 90vw, 45vw" alt="D&A Innovations Studio Testing"></picture>
+            </div>
+            <div class="thumbnails" id="thumbs">
+                <div class="thumb active" data-index="0"><picture><source srcset="../images/da18-studio-480.webp 480w, ../images/da18-studio-800.webp 800w, ../images/da18-studio-1200.webp 1200w, ../images/da18-studio.webp 1600w" sizes="100px" type="image/webp"><img src="../images/da18-studio.jpg" srcset="../images/da18-studio-480.jpg 480w, ../images/da18-studio-800.jpg 800w, ../images/da18-studio-1200.jpg 1200w, ../images/da18-studio.jpg 1600w" sizes="100px" alt="DA18 three-quarter view" loading="lazy"></picture></div>
+                <div class="thumb" data-index="1"><picture><source srcset="../images/da18-front-studio-480.webp 480w, ../images/da18-front-studio-800.webp 800w, ../images/da18-front-studio-1200.webp 1200w, ../images/da18-front-studio.webp 1600w" sizes="100px" type="image/webp"><img src="../images/da18-front-studio.jpg" srcset="../images/da18-front-studio-480.jpg 480w, ../images/da18-front-studio-800.jpg 800w, ../images/da18-front-studio-1200.jpg 1200w, ../images/da18-front-studio.jpg 1600w" sizes="100px" alt="DA18 front view" loading="lazy"></picture></div>
+                <div class="thumb" data-index="2"><picture><source srcset="../images/system-stack-low-angle-480.webp 480w, ../images/system-stack-low-angle-800.webp 800w, ../images/system-stack-low-angle-1200.webp 1200w, ../images/system-stack-low-angle.webp 2040w" sizes="100px" type="image/webp"><img src="../images/system-stack-low-angle.jpg" srcset="../images/system-stack-low-angle-480.jpg 480w, ../images/system-stack-low-angle-800.jpg 800w, ../images/system-stack-low-angle-1200.jpg 1200w, ../images/system-stack-low-angle.jpg 2040w" sizes="100px" alt="Detail 1" loading="lazy"></picture></div>
+                <div class="thumb" data-index="3"><picture><source srcset="../images/system-stack-wide-bass-horns-480.webp 480w, ../images/system-stack-wide-bass-horns-800.webp 800w, ../images/system-stack-wide-bass-horns-1200.webp 1200w, ../images/system-stack-wide-bass-horns.webp 2040w" sizes="100px" type="image/webp"><img src="../images/system-stack-wide-bass-horns.jpg" srcset="../images/system-stack-wide-bass-horns-480.jpg 480w, ../images/system-stack-wide-bass-horns-800.jpg 800w, ../images/system-stack-wide-bass-horns-1200.jpg 1200w, ../images/system-stack-wide-bass-horns.jpg 2040w" sizes="100px" alt="Detail 2" loading="lazy"></picture></div>
+                <div class="thumb" data-index="4"><picture><source srcset="../images/system-stack-low-angle-480.webp 480w, ../images/system-stack-low-angle-800.webp 800w, ../images/system-stack-low-angle-1200.webp 1200w, ../images/system-stack-low-angle.webp 2040w" sizes="100px" type="image/webp"><img src="../images/system-stack-low-angle.jpg" srcset="../images/system-stack-low-angle-480.jpg 480w, ../images/system-stack-low-angle-800.jpg 800w, ../images/system-stack-low-angle-1200.jpg 1200w, ../images/system-stack-low-angle.jpg 2040w" sizes="100px" alt="Detail 3" loading="lazy"></picture></div>
+            </div>
+        </div>
+        <div class="product-info">
+            <span class="badge">Low-Frequency Reference // Subwoofers</span>
+            <h1>DA18</h1>
+            <div class="subtitle">Passive Tapped Horn Subwoofer</div>
+            <p>The DA18 is a high-output single 18-inch passive bass enclosure engineered around the flagship Eighteen Sound 18NTLW5000 transducer. Designed for demanding pro-audio touring and high-fidelity installations, the tapped horn topology maximizes acoustic coupling and continuous output while preserving exceptional transient speed.</p>
+            <p>Operated with dedicated system DSP processing, precision phase correction, and calibrated limiters, the DA18 delivers deep, articulate sub-bass down to 32 Hz with zero overhang.</p>
+            <div class="actions-group">
+                <a href="../contact.html?type=purchase" class="btn">Inquire for Purchase</a>
+                <a href="../images/DA18_Passive_Tapped_Horn_Specification (3).pdf" class="btn btn-outline" target="_blank">Download Spec PDF</a>
+                <a href="../rent.html" class="btn btn-outline">Rent for Events</a>
+            </div>
+        </div>
+    </main>
+
+    <section class="specs-section">
+        <div class="specs-container">
+            <h2>Technical Specifications</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <span class="spec-label">Product Type</span>
+                    <p class="spec-value">Passive Tapped Horn Subwoofer</p>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Transducer</span>
+                    <p class="spec-value">18Sound 18NTLW5000 (18" Neodymium)</p>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Frequency Response</span>
+                    <p class="spec-value">32 – 80 Hz (-6 dB, processed)</p>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Maximum SPL</span>
+                    <p class="spec-value">134 dB Continuous (140 dB Peak)</p>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Power Handling</span>
+                    <p class="spec-value">1800 W AES / 3600 W Program</p>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Sensitivity</span>
+                    <p class="spec-value">101 dB @ 2.83 V / 1 m (half-space)</p>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Nominal Impedance</span>
+                    <p class="spec-value">8 Ω</p>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Connectors</span>
+                    <p class="spec-value">2x Neutrik speakON NL4</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="details-section">
+        <h2>Engineering & Mechanical Construction</h2>
+        <div class="details-grid">
+            <div class="detail-card">
+                <h3>Acoustic Topology</h3>
+                <p>The tapped horn design exploits both the front and rear radiation of the 18NTLW5000 cone inside a folded resonant path. This yields greater sensitivity, lower group delay, and reduced cone excursion compared to conventional vented bass reflex enclosures.</p>
+            </div>
+            <div class="detail-card">
+                <h3>Baltic Birch Enclosure</h3>
+                <p>Built from premium 18 mm void-free Baltic birch plywood. Internal bracing eliminates unwanted cabinet resonance, ensuring that all acoustic energy is transferred directly into the listening field.</p>
+            </div>
+            <div class="detail-card">
+                <h3>Touring Durability</h3>
+                <p>Dimensions: 1016 x 571 x 724 mm. Weight: 72.5 kg. Protected by a heavy-duty Warnex textured polyurethane finish, recessed steel handles, and optional heavy-duty wheelboards for seamless transport.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <a href="../index.html" class="footer-brand-link">
+                    <img src="../images/logo.png" alt="D&A Innovations" class="footer-logo-img" loading="lazy">
+                </a>
+                <p class="footer-tagline">Precision point-source speakers, multiple entry horns, and subwoofers engineered in Ljubljana, Slovenia.</p>
+                <div class="footer-status">
+                    <span class="status-dot"></span> Acoustic Systems Lab
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Acoustic Systems</h4>
+                <ul class="footer-menu">
+                    <li><a href="../products.html">All Products</a></li>
+                    <li><a href="../products.html#point-source">Point Source</a></li>
+                    <li><a href="../products.html#entry-horns">Multiple Entry Horns</a></li>
+                    <li><a href="../products.html#servo-subs">Subwoofers</a></li>
+                    <li><a href="../products.html#amplification">Amplification & DSP</a></li>
+                    <li><a href="../technology.html">Engineering Technology</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Services & Solutions</h4>
+                <ul class="footer-menu">
+                    <li><a href="../services.html">Acoustic CAD & Simulation</a></li>
+                    <li><a href="../services.html">Bespoke Manufacturing</a></li>
+                    <li><a href="../services.html">DSP Tuning & Calibration</a></li>
+                    <li><a href="../applications.html">Pro Audio & Cinema</a></li>
+                    <li><a href="../rent.html">System Rentals</a></li>
+                    <li><a href="../gallery.html">Gallery &amp; Events</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Inquiries</h4>
+                <ul class="footer-menu">
+                    <li><a href="../buy.html">Purchase & Direct Orders</a></li>
+                    <li><a href="../about.html">About Us & Lab</a></li>
+                    <li><a href="../contact.html">Contact Engineering</a></li>
+                    <li><a href="../faq.html">Technical FAQ</a></li>
+                    <li><a href="../downloads.html">Spec Sheet Downloads</a></li>
+                    <li><a href="mailto:info@dainnovations.com" class="footer-email">info@dainnovations.com</a></li>
+                </ul>
+                <div class="footer-location">
+                    <span>Lab Location:</span>
+                    <p>Ljubljana, Slovenia, EU</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p class="footer-copy">&copy; 2026 D&A Innovations. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="../index.html">Home</a>
+                    <span class="sep">&middot;</span>
+                    <a href="../products.html">Products</a>
+                    <span class="sep">&middot;</span>
+                    <a href="../services.html">Services</a>
+                    <span class="sep">&middot;</span>
+                    <a href="../gallery.html">Gallery</a>
+                    <span class="sep">&middot;</span>
+                    <a href="../contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const images = slider.getElementsByTagName('img');
+        const thumbs = document.getElementById('thumbs').getElementsByClassName('thumb');
+        let currentIndex = 0;
+        let autoScroll = true;
+
+        function showImage(index) {
+            for(let i = 0; i < images.length; i++) {
+                images[i].classList.remove('active');
+                thumbs[i].classList.remove('active');
+            }
+            images[index].classList.add('active');
+            thumbs[index].classList.add('active');
+            currentIndex = index;
+        }
+
+        function nextImage() {
+            let next = (currentIndex + 1) % images.length;
+            showImage(next);
+        }
+
+        function prevImage() {
+            let prev = (currentIndex - 1 + images.length) % images.length;
+            showImage(prev);
+        }
+
+        let interval = setInterval(() => {
+            if(autoScroll) nextImage();
+        }, 4500);
+
+        const btnPrev = document.getElementById('slider-prev');
+        const btnNext = document.getElementById('slider-next');
+        if(btnPrev) btnPrev.addEventListener('click', (e) => { e.stopPropagation(); autoScroll = false; clearInterval(interval); prevImage(); });
+        if(btnNext) btnNext.addEventListener('click', (e) => { e.stopPropagation(); autoScroll = false; clearInterval(interval); nextImage(); });
+
+        for(let i = 0; i < thumbs.length; i++) {
+            thumbs[i].addEventListener('click', () => {
+                autoScroll = false;
+                clearInterval(interval);
+                showImage(i);
+            });
+        }
+
+    </script>
+
+    <script>
+    (function() {
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        if (!menuToggle || !navLinks) return;
+
+        function toggleMenu(open) {
+            const isOpen = typeof open === 'boolean' ? open : !navLinks.classList.contains('active');
+            navLinks.classList.toggle('active', isOpen);
+            menuToggle.classList.toggle('active', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Close menu when tapping any navigation link
+        navLinks.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                toggleMenu(false);
+            });
+        });
+
+        // Close menu when tapping outside
+        document.addEventListener('click', function(e) {
+            if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                toggleMenu(false);
+            }
+        });
+
+        // Close menu on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                toggleMenu(false);
+            }
+        });
+    })();
+    </script>
+
+
+    <script>
+    // Touch swipe support for mobile slider
+    (function() {
+        const sliderBox = document.getElementById('slider') || document.querySelector('.main-img-box');
+        if (!sliderBox) return;
+
+        let startX = 0;
+        let startY = 0;
+        let endX = 0;
+        let endY = 0;
+
+        sliderBox.addEventListener('touchstart', function(e) {
+            startX = e.changedTouches[0].screenX;
+            startY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        sliderBox.addEventListener('touchend', function(e) {
+            endX = e.changedTouches[0].screenX;
+            endY = e.changedTouches[0].screenY;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const diffX = endX - startX;
+            const diffY = endY - startY;
+            // Ensure horizontal swipe is dominant and significant
+            if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+                if (diffX < 0) {
+                    // Swiped Left -> Next Image
+                    if (typeof nextImage === 'function') nextImage();
+                    else {
+                        const btnNext = document.getElementById('slider-next');
+                        if (btnNext) btnNext.click();
+                    }
+                } else {
+                    // Swiped Right -> Prev Image
+                    if (typeof prevImage === 'function') prevImage();
+                    else {
+                        const btnPrev = document.getElementById('slider-prev');
+                        if (btnPrev) btnPrev.click();
+                    }
+                }
+            }
+        }
+    })();
+    </script>
+
+</body>
+</html>

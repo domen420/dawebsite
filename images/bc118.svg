@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <!-- Placeholder: replace with a photo of the BC118 cabinet (save as images/bc118.jpg and update speakers/BC118.html) -->
+  <rect width="1200" height="900" fill="#161616"/>
+  <rect x="1" y="1" width="1198" height="898" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+  <g fill="none" stroke="#3a3a3a" stroke-width="3">
+    <rect x="300" y="260" width="600" height="360"/>
+    <path d="M330 590 L330 290 L560 330 L560 550 Z"/>
+    <circle cx="730" cy="450" r="110"/>
+    <circle cx="730" cy="450" r="40"/>
+  </g>
+  <text x="600" y="740" fill="#8a8a8a" font-family="Montserrat, Arial, sans-serif" font-size="40" letter-spacing="10" text-anchor="middle">BC118</text>
+  <text x="600" y="790" fill="#555555" font-family="Inter, Arial, sans-serif" font-size="20" letter-spacing="6" text-anchor="middle">PHOTO COMING SOON</text>
+</svg>

@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    /* Fixed-1920 scaling: viewport units default to the normal ones (phones);
+       computers get px values for the 1920 canvas from the script below. */
+    :root { --vh: 1vh; --dvh: 1dvh; --vw: 1vw; }
+    </style>
+    <script>
+    /* Fixed-1920 scaling (computers only): lay the page out at 1920px and zoom it to
+       fit the window. Phones and tablets are left exactly as the original site. */
+    (function () {
+        var W = 1920, root = document.documentElement;
+        var ua = navigator.userAgent || '';
+        var mobileUA = (navigator.userAgentData && navigator.userAgentData.mobile) ||
+            /Android|iPhone|iPad|iPod|Mobile|Silk|Kindle|Opera Mini|IEMobile/i.test(ua);
+        var iPadAsMac = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;
+        var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        // No touchscreen at all: certainly not a phone. With touch (e.g. touch
+        // laptops), also require a screen larger than any phone.
+        var noTouch = !(navigator.maxTouchPoints > 0);
+        var bigScreen = Math.max(screen.width || 0, screen.height || 0) >= 950;
+        var desktop = finePointer && !mobileUA && !iPadAsMac && (noTouch || bigScreen);
+        root.__scaled1920 = desktop;
+        if (!desktop) return;                       // phones/tablets: original site
+        root.classList.add('ui-scaled');
+        function fit() {
+            root.style.zoom = '';
+            var vw = root.clientWidth || window.innerWidth;   // excludes the scrollbar
+            var z = vw / W;
+            root.style.zoom = z;
+            root.style.setProperty('--vh', (window.innerHeight / z / 100) + 'px');
+            root.style.setProperty('--dvh', (window.innerHeight / z / 100) + 'px');
+            root.style.setProperty('--vw', (W / 100) + 'px');
+        }
+        fit();
+        window.addEventListener('resize', fit);
+        document.addEventListener('DOMContentLoaded', fit);
+    })();
+    </script>
+    <link rel="icon" type="image/png" href="../images/favicon-32.png">
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+    <title>Akustične inženirske storitve | D&amp;A Innovations</title>
+    <meta name="description" content="Akustični inženiring D&amp;A Innovations: 3D CAD in simulacije, CNC izdelava v Sloveniji in DSP umerjanje na lokaciji s FIR fazno korekcijo.">
+    <meta name="keywords" content="acoustic design, bespoke manufacturing, system calibration, DSP tuning, audio engineering services">
+    <link rel="canonical" href="https://domen420.github.io/dainnovations/sl/services.html">
+    <link rel="alternate" hreflang="en" href="https://domen420.github.io/dainnovations/services.html">
+    <link rel="alternate" hreflang="sl" href="https://domen420.github.io/dainnovations/sl/services.html">
+    <link rel="alternate" hreflang="x-default" href="https://domen420.github.io/dainnovations/services.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://domen420.github.io/dainnovations/sl/services.html">
+    <meta property="og:title" content="Akustične inženirske storitve | D&amp;A Innovations">
+    <meta property="og:description" content="Akustični inženiring D&amp;A Innovations: 3D CAD in simulacije, CNC izdelava v Sloveniji in DSP umerjanje na lokaciji s FIR fazno korekcijo.">
+    <meta property="og:image" content="https://domen420.github.io/dainnovations/images/system-stack-low-angle.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://domen420.github.io/dainnovations/sl/services.html">
+    <meta property="twitter:title" content="Akustične inženirske storitve | D&amp;A Innovations">
+    <meta property="twitter:description" content="Akustični inženiring D&amp;A Innovations: 3D CAD in simulacije, CNC izdelava v Sloveniji in DSP umerjanje na lokaciji s FIR fazno korekcijo.">
+    <meta property="twitter:image" content="https://domen420.github.io/dainnovations/images/system-stack-low-angle.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@300;400;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@300;400;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@300;400;700&display=swap"></noscript>
+    <style>
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #0A0A0A;
+            --accent: #FFFFFF;
+            --text-white: #FFFFFF;
+            --text-gray: #A0A0A0;
+            --card-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .logo-img { height: 50px; width: auto; }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-item { position: relative; }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-white);
+            font-size: 0.8rem;
+            font-weight: 300;
+            transition: opacity 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+            padding: 1rem 0;
+        }
+
+        .nav-links a:hover { opacity: 0.7; }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown a {
+            padding: 1rem 1.5rem;
+            font-size: 0.7rem;
+            border-bottom: 1px solid var(--card-border);
+            text-align: center;
+        }
+
+        .dropdown a:last-child { border-bottom: none; }
+
+        /* Header */
+        .page-header {
+            padding: 6rem 5% 2rem;
+            background: var(--bg-secondary);
+            text-align: center;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Services Grid */
+        .services-section {
+            padding: 8rem 5%;
+            background-color: var(--bg-primary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+            padding: 4rem 3rem;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .icon-placeholder {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 2.5rem;
+            border: 1px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(45deg);
+        }
+
+        .icon-placeholder::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            color: var(--text-white);
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            letter-spacing: 0.2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .copyright {
+            color: var(--text-gray);
+            font-size: 0.7rem;
+            width: 100%;
+            text-align: center;
+            margin-top: 3rem;
+            opacity: 0.5;
+        }
+
+        
+            /* Mobile Specific Styles */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
+        .menu-toggle .bar { width: 25px; height: 2px; background-color: var(--text-white); transition: 0.3s; }
+        @media (max-width: 992px) {
+            nav { padding: 1.5rem 5%; }
+            .nav-links { position: fixed; top: 80px; left: -100%; flex-direction: column; background: var(--bg-secondary); width: 100%; text-align: center; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.5); padding: 2rem 0; gap: 1rem; }
+            .nav-links.active { left: 0; }
+            .menu-toggle { display: flex; }
+            .dropdown { position: static; transform: none; opacity: 1; visibility: visible; box-shadow: none; display: none; background: #1a1a1a; }
+            .nav-item:hover .dropdown { display: block; }
+            .hero h1, .page-header h1 { font-size: 1.8rem !important; padding: 0 10px; }
+            .section, .products-container, .container { padding: 5rem 5%; }
+            .grid { grid-template-columns: 1fr; }
+            .card-innov, .app-row, .app-row.reverse { flex-direction: column; text-align: center; gap: 2rem; }
+            .app-image { width: 100%; height: 300px; }
+                    
+        }
+
+
+/* =========================================
+   Unified Luxury-Tech Footer Styles (Compact)
+   ========================================= */
+.site-footer {
+    background: #080808 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #999999 !important;
+    font-family: 'Inter', sans-serif !important;
+    padding: 2.2rem 0 0 0 !important;
+    margin-top: 3rem !important;
+    width: 100% !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    display: block !important;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5% 1.8rem 5%;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 2.2rem;
+    box-sizing: border-box;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand-link {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    text-decoration: none;
+}
+
+.footer-logo-img {
+    height: 30px;
+    width: auto;
+    display: block;
+    filter: brightness(1.2);
+}
+
+.footer-tagline {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: #777777;
+    margin-bottom: 0.75rem;
+    font-weight: 300;
+    max-width: 270px;
+}
+
+.footer-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #999999;
+}
+
+.status-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #4ade80;
+    box-shadow: 0 0 6px rgba(74, 222, 128, 0.6);
+    display: inline-block;
+}
+
+.footer-heading {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+    color: #ffffff !important;
+    margin-bottom: 0.9rem !important;
+    position: relative;
+    padding-bottom: 0.35rem;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 18px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.footer-menu {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.footer-menu li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.footer-menu a {
+    color: #888888 !important;
+    text-decoration: none !important;
+    font-size: 0.78rem !important;
+    font-weight: 300 !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
+    display: inline-block !important;
+    padding: 0 !important;
+    letter-spacing: 0.02em !important;
+    text-transform: none !important;
+}
+
+.footer-menu a:hover {
+    color: #ffffff !important;
+    transform: translateX(3px);
+    opacity: 1 !important;
+}
+
+.footer-email {
+    color: #b0b0b0 !important;
+    font-family: monospace !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.03em !important;
+    margin-top: 0.3rem;
+}
+
+.footer-location {
+    margin-top: 0.8rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.7rem;
+}
+
+.footer-location span {
+    color: #555555;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.62rem;
+    display: block;
+    margin-bottom: 0.1rem;
+}
+
+.footer-location p {
+    color: #999999;
+    font-weight: 300;
+    margin: 0;
+}
+
+.footer-bottom {
+    background: #040404;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 0.9rem 0;
+    width: 100%;
+}
+
+.footer-bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.footer-copy {
+    font-size: 0.7rem;
+    color: #555555;
+    margin: 0;
+    letter-spacing: 0.03em;
+}
+
+.footer-bottom-links {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.footer-bottom-links a {
+    color: #555555 !important;
+    text-decoration: none !important;
+    font-size: 0.7rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    transition: color 0.2s ease !important;
+    padding: 0 !important;
+}
+
+.footer-bottom-links a:hover {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+.footer-bottom-links .sep {
+    color: #333333;
+    font-size: 0.65rem;
+}
+
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        padding-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 580px) {
+    .site-footer {
+        padding-top: 2rem !important;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+    }
+    .footer-tagline {
+        max-width: 100%;
+    }
+    .footer-bottom-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
+
+
+        /* Active Nav Link */
+        .nav-links a.active {
+            color: #ffffff;
+            font-weight: 500;
+            position: relative;
+        }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #ffffff;
+            box-shadow: 0 0 8px rgba(255,255,255,0.6);
+        }
+
+        /* Enhanced Service Cards with SVGs */
+        .service-card {
+            border-radius: 4px;
+            background: #0d0d0d !important;
+            padding: 3.5rem 2.5rem !important;
+            transition: transform 0.3s ease, border-color 0.3s ease !important;
+        }
+        .service-card:hover {
+            transform: translateY(-6px) !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
+        }
+        .service-svg {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 2rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 6rem 5%;
+            background: #080808;
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .process-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .process-kicker {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: #c0c0c0;
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+        .process-header h2 {
+            font-size: 2rem;
+            font-weight: 300;
+        }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+        .process-card {
+            background: #0d0d0d;
+            border: 1px solid var(--card-border);
+            padding: 2.5rem 2rem;
+            border-radius: 4px;
+            position: relative;
+        }
+        .process-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.15);
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        .process-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: #ffffff;
+        }
+        .process-card p {
+            color: #999999;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Consultation CTA Banner */
+        .services-cta-bar {
+            padding: 5rem 5%;
+            background: #0d0d0d;
+            text-align: center;
+        }
+        .services-cta-box {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+        .services-cta-box h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        .services-cta-box p {
+            color: #888888;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+        .btn-cta {
+            padding: 1rem 2.5rem;
+            border: 1px solid #ffffff;
+            background: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-weight: 500;
+        }
+        .btn-cta:hover {
+            background: transparent;
+            color: #ffffff;
+        }
+
+
+/* =======================================================
+   COMPREHENSIVE MOBILE OPTIMIZATIONS (Smartphones & Tablets)
+   ======================================================= */
+@media (max-width: 992px) {
+    nav {
+        padding: 0.9rem 5% !important;
+        height: 70px !important;
+        box-sizing: border-box !important;
+    }
+    .logo-img {
+        height: 38px !important;
+        width: auto !important;
+    }
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 44px !important;
+        height: 44px !important;
+        cursor: pointer !important;
+        gap: 5px !important;
+        z-index: 1002 !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .menu-toggle .bar {
+        width: 24px !important;
+        height: 2px !important;
+        background-color: #ffffff !important;
+        transition: transform 0.3s ease, opacity 0.2s ease !important;
+        border-radius: 2px !important;
+        display: block !important;
+    }
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg) !important;
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0 !important;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg) !important;
+    }
+    .nav-links {
+        position: fixed !important;
+        top: 70px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: calc(calc(100 * var(--vh)) - 70px) !important;
+        height: calc(calc(100 * var(--dvh)) - 70px) !important;
+        background: rgba(8, 8, 8, 0.98) !important;
+        backdrop-filter: blur(25px) !important;
+        -webkit-backdrop-filter: blur(25px) !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        padding: 1.5rem 6% 3.5rem !important;
+        gap: 0.15rem !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        transform: translateY(-100%) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease !important;
+        z-index: 1001 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9) !important;
+        box-sizing: border-box !important;
+    }
+    .nav-links.active {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+    .nav-item {
+        width: 100% !important;
+        position: static !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    }
+    .nav-links a {
+        padding: 0.85rem 0.5rem !important;
+        font-size: 0.82rem !important;
+        letter-spacing: 0.12em !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        min-height: 44px !important;
+        text-align: left !important;
+        color: #ffffff !important;
+    }
+    .nav-links a.active {
+        color: #ffffff !important;
+        font-weight: 600 !important;
+    }
+    /* Mobile Submenu for Products */
+    .dropdown {
+        position: static !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        box-shadow: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 4px !important;
+        margin: 0.1rem 0 0.8rem !important;
+        padding: 0.25rem 0 !important;
+        min-width: unset !important;
+    }
+    .dropdown a {
+        padding: 0.65rem 1rem !important;
+        font-size: 0.72rem !important;
+        color: #999999 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.08em !important;
+        text-align: left !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+        min-height: 40px !important;
+    }
+    .dropdown a:last-child {
+        border-bottom: none !important;
+    }
+    .dropdown a:hover, .dropdown a:active {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.06) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: calc(100 * var(--vw)) !important;
+        -webkit-text-size-adjust: 100%;
+    }
+    .hero {
+        min-height: calc(85 * var(--vh)) !important;
+        height: auto !important;
+        padding: 6.5rem 5% 3.5rem !important;
+    }
+    .page-header {
+        padding: 6rem 5% 2.5rem !important;
+    }
+    .page-header h1, .hero h1 {
+        font-size: clamp(1.65rem, calc(5.5 * var(--vw)), 2.3rem) !important;
+        line-height: 1.25 !important;
+        letter-spacing: 0.08em !important;
+    }
+    .page-header p, .hero p {
+        font-size: 0.92rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 2rem !important;
+        padding: 0 0.2rem !important;
+    }
+    .hero-buttons, .hero .btn-group {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.8rem !important;
+    }
+    .hero .btn, .btn-cta, .submit-btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+    .section, .container, .products-container, .services-section, .gallery-section, .specs-section, .principle-section, .range-cta-bar, .guarantee-section {
+        padding: 3.5rem 5% !important;
+        box-sizing: border-box !important;
+    }
+    .section-header {
+        margin-bottom: 2.5rem !important;
+    }
+    .section-header h2 {
+        font-size: 1.5rem !important;
+    }
+    .grid, .gallery-grid, .guarantee-grid, .steps-grid, .services-grid, .apps-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.6rem !important;
+    }
+    /* Horizontal Swipeable Category Filter on Products Page */
+    .filter-nav-wrap {
+        top: 70px !important;
+        padding: 0.75rem 0 !important;
+    }
+    .filter-pills {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 0 5% !important;
+        gap: 0.5rem !important;
+        justify-content: flex-start !important;
+        scrollbar-width: none !important;
+    }
+    .filter-pills::-webkit-scrollbar {
+        display: none !important;
+    }
+    .filter-pill {
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+        padding: 0.45rem 0.95rem !important;
+        font-size: 0.68rem !important;
+    }
+    /* Product Cards & Images */
+    .product-card {
+        padding: 1.8rem 1.4rem !important;
+    }
+    .product-img {
+        height: 200px !important;
+    }
+    /* Product Detail Enhancements */
+    .breadcrumb-nav {
+        padding: 5.5rem 5% 0.75rem !important;
+        font-size: 0.65rem !important;
+        flex-wrap: wrap !important;
+        gap: 0.35rem !important;
+        line-height: 1.5 !important;
+    }
+    .product-main {
+        padding: 0.8rem 5% 2.5rem !important;
+        flex-direction: column !important;
+        gap: 1.8rem !important;
+    }
+    .slider-container, .product-info {
+        flex: 1 1 100% !important;
+        min-width: 100% !important;
+        width: 100% !important;
+    }
+    .main-img-box {
+        height: 290px !important;
+    }
+    .thumbnails {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        flex-wrap: nowrap !important;
+        padding-bottom: 0.4rem !important;
+        scrollbar-width: none !important;
+        gap: 0.6rem !important;
+    }
+    .thumbnails::-webkit-scrollbar {
+        display: none !important;
+    }
+    .thumb {
+        width: 68px !important;
+        min-width: 68px !important;
+        height: 50px !important;
+        flex-shrink: 0 !important;
+    }
+    .actions-group, .product-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        width: 100% !important;
+    }
+    .actions-group .btn, .product-actions .btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+    /* Specs Grid */
+    .specs-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.2rem !important;
+    }
+    /* Applications Rows */
+    .app-row, .app-row.reverse {
+        flex-direction: column !important;
+        text-align: left !important;
+        padding: 2.8rem 0 !important;
+        gap: 1.5rem !important;
+    }
+    .app-image {
+        width: 100% !important;
+        height: 230px !important;
+    }
+    /* Service Cards */
+    .service-card, .service-home-card, .info-card {
+        padding: 2.2rem 1.5rem !important;
+    }
+    /* Inputs & Forms (16px font-size prevents iOS Safari zoom) */
+    input[type="text"], input[type="email"], select, textarea {
+        font-size: 16px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 0.9rem 1rem !important;
+    }
+    .btn, .submit-btn, .btn-cta {
+        min-height: 46px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-img-box {
+        height: 240px !important;
+    }
+    .stats-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    .stat-val {
+        font-size: 2rem !important;
+    }
+    .gallery-item {
+        height: 210px !important;
+    }
+    .card-innov {
+        height: 270px !important;
+        padding: 1.6rem 1.2rem !important;
+    }
+    .info-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+}
+
+/* =======================================================
+   ENHANCED PREVIEW STYLES (servicesbackup.html only)
+   ======================================================= */
+
+/* Scroll progress bar */
+.scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    background: linear-gradient(90deg, rgba(255,255,255,.15), #ffffff, rgba(255,255,255,.15));
+    box-shadow: 0 0 14px rgba(255,255,255,.55);
+    z-index: 1200;
+    pointer-events: none;
+}
+
+/* Ambient page background */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        radial-gradient(620px circle at 12% 8%, rgba(255,255,255,.05), transparent 60%),
+        radial-gradient(720px circle at 88% 82%, rgba(192,192,192,.05), transparent 60%);
+}
+
+/* Scroll reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
+    transition-delay: var(--delay, 0s);
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ---- Enhanced Hero ---- */
+.page-header.hero-enhanced {
+    position: relative;
+    overflow: hidden;
+    padding: 9rem 5% 6rem;
+    min-height: calc(64 * var(--vh));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at 50% -10%, #161616, var(--bg-secondary) 70%);
+}
+.wave-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .55;
+    pointer-events: none;
+    z-index: 1;
+}
+.hero-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 22%, transparent 72%);
+    mask-image: radial-gradient(ellipse at center, #000 22%, transparent 72%);
+    pointer-events: none;
+    z-index: 1;
+}
+.hero-glow {
+    position: absolute;
+    width: 540px; height: 540px;
+    border-radius: 50%;
+    filter: blur(70px);
+    background: #ffffff;
+    top: -180px; left: 50%;
+    transform: translateX(-50%);
+    opacity: .08;
+    animation: glowFloat 9s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+@keyframes glowFloat {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: .07; }
+    50% { transform: translateX(-50%) scale(1.18); opacity: .13; }
+}
+.page-header-content { position: relative; z-index: 3; max-width: 840px; }
+.hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    padding: .45rem 1.15rem;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 50px;
+    background: rgba(255,255,255,.04);
+    backdrop-filter: blur(8px);
+    font-size: .68rem;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: #dcdcdc;
+    margin-bottom: 1.7rem;
+    opacity: 0;
+    animation: fadeUp .8s ease .1s forwards;
+}
+.hero-kicker .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 10px rgba(74,222,128,.9);
+    animation: pulseDot 1.8s ease-in-out infinite;
+}
+@keyframes pulseDot { 0%,100%{opacity:1; transform:scale(1);} 50%{opacity:.35; transform:scale(.75);} }
+.hero-title { overflow: hidden; }
+.hero-title h1 {
+    font-size: clamp(2.2rem, calc(5 * var(--vw)), 3.6rem);
+    font-weight: 300;
+    line-height: 1.12;
+    margin-bottom: 1.2rem;
+    transform: translateY(115%);
+    animation: titleUp 1s cubic-bezier(.16,1,.3,1) .18s forwards;
+    background: linear-gradient(180deg, #ffffff, #b4b4b4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+@keyframes titleUp { to { transform: none; } }
+.hero-sub {
+    color: var(--text-gray);
+    font-weight: 300;
+    font-size: 1.05rem;
+    max-width: 660px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeUp .9s ease .6s forwards;
+}
+@keyframes fadeUp { from { opacity:0; transform: translateY(18px);} to { opacity:1; transform:none;} }
+
+/* ---- Marquee ticker ---- */
+.marquee {
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--card-border);
+    background: #0b0b0b;
+    padding: .95rem 0;
+}
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: #6f6f6f;
+    white-space: nowrap;
+    padding: 0 1.6rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+.marquee-item::after { content: '\25C6'; color: #3a3a3a; font-size: .55rem; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ---- Section head ---- */
+.section-head { text-align: center; max-width: 660px; margin: 0 auto 4rem; }
+.section-head .kicker {
+    font-size: .72rem; letter-spacing: .26em; text-transform: uppercase;
+    color: #a8a8a8; display: block; margin-bottom: .75rem;
+}
+.section-head h2 { font-size: 2rem; font-weight: 300; }
+
+/* ---- Enhanced service cards ---- */
+.service-card.enhanced {
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    padding: 0 !important;
+    min-height: 410px;
+    display: flex;
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    background: #0d0d0d;
+    transform-style: preserve-3d;
+    transform: perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0px)) !important;
+    will-change: transform;
+    transition: transform .2s ease-out, border-color .4s ease, box-shadow .4s ease;
+}
+.service-card.enhanced:hover {
+    border-color: rgba(255,255,255,.35) !important;
+    box-shadow: 0 20px 55px rgba(0,0,0,.65), 0 0 45px rgba(255,255,255,.05);
+}
+.service-card.enhanced .card-media {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) contrast(1.05) brightness(.95);
+    opacity: .15;
+    transform: scale(1.06);
+    transition: transform .9s cubic-bezier(.16,1,.3,1), opacity .6s ease;
+    z-index: 0;
+}
+.service-card.enhanced:hover .card-media { transform: scale(1.15); opacity: .26; }
+.service-card.enhanced .card-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,.25) 0%, rgba(10,10,10,.86) 58%, #0d0d0d 100%);
+}
+.service-card.enhanced .card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(340px circle at var(--mx,50%) var(--my,0%), rgba(255,255,255,.13), transparent 55%);
+    opacity: 0;
+    transition: opacity .35s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+.service-card.enhanced:hover .card-glow { opacity: 1; }
+.service-card.enhanced .card-inner {
+    position: relative;
+    z-index: 2;
+    padding: 2.7rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+.icon-ring {
+    position: relative;
+    width: 66px; height: 66px;
+    margin-bottom: 1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.icon-ring::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px dashed rgba(255,255,255,.28);
+    animation: spin 14s linear infinite;
+}
+.icon-ring::after {
+    content: '';
+    position: absolute;
+    inset: 9px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,.12), transparent 70%);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.icon-ring svg {
+    position: relative;
+    z-index: 2;
+    width: 30px; height: 30px;
+    color: #fff;
+    transition: transform .4s ease;
+}
+.service-card.enhanced:hover .icon-ring svg { transform: scale(1.14); }
+.service-card.enhanced h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: .9rem;
+    color: #fff;
+    letter-spacing: .08em;
+}
+.service-card.enhanced p {
+    color: #9a9a9a;
+    font-weight: 300;
+    font-size: .92rem;
+    line-height: 1.65;
+    margin-bottom: 1.6rem;
+}
+.card-link {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .7rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #cfcfcf;
+    transition: color .3s ease;
+}
+.card-link svg { width: 16px; height: 16px; transition: transform .3s ease; }
+.service-card.enhanced:hover .card-link { color: #fff; }
+.service-card.enhanced:hover .card-link svg { transform: translateX(5px); }
+
+/* ---- Equalizer divider ---- */
+.eq-divider {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 3px;
+    height: 66px;
+    padding: 0 5%;
+    background: #0a0a0a;
+    overflow: hidden;
+    border-bottom: 1px solid var(--card-border);
+}
+.eq-bar {
+    width: 3px;
+    border-radius: 2px;
+    height: 15%;
+    background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.06));
+    animation: eq 1.1s ease-in-out infinite;
+}
+@keyframes eq { 0%,100%{ height: 10%; opacity:.35;} 50%{ height: 92%; opacity:.9;} }
+
+/* ---- Enhanced process ---- */
+.process-section { position: relative; overflow: hidden; }
+.process-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+    background-size: 42px 42px;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000, transparent 76%);
+    mask-image: radial-gradient(ellipse at center, #000, transparent 76%);
+    pointer-events: none;
+}
+.process-scan {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 200px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.055), transparent);
+    animation: scan 8s linear infinite;
+    pointer-events: none;
+}
+@keyframes scan { 0% { transform: translateX(-220px);} 100% { transform: translateX(calc(calc(100 * var(--vw)) + 220px));} }
+.process-container { position: relative; z-index: 2; }
+.process-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform .4s ease, border-color .4s ease, box-shadow .4s ease;
+}
+.process-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(255,255,255,.28);
+    box-shadow: 0 18px 45px rgba(0,0,0,.55);
+}
+.process-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+    transform: scaleX(0);
+    transition: transform .5s ease;
+}
+.process-card:hover::before { transform: scaleX(1); }
+.process-num {
+    background: linear-gradient(180deg, rgba(255,255,255,.4), rgba(255,255,255,.08));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.process-grid .process-card:nth-child(1) { --delay: .05s; }
+.process-grid .process-card:nth-child(2) { --delay: .13s; }
+.process-grid .process-card:nth-child(3) { --delay: .21s; }
+.process-grid .process-card:nth-child(4) { --delay: .29s; }
+
+/* ---- Enhanced CTA ---- */
+.services-cta-bar {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 130%, #171717, #0d0d0d 70%);
+}
+.services-cta-bar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+    background-size: 42px 42px;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000, transparent 70%);
+    mask-image: radial-gradient(ellipse at center, #000, transparent 70%);
+    pointer-events: none;
+}
+.services-cta-box { position: relative; z-index: 2; }
+.btn-cta { position: relative; overflow: hidden; }
+.btn-cta::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -130%;
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,.28), transparent);
+    transform: skewX(-20deg);
+    transition: left .65s ease;
+}
+.btn-cta:hover::after { left: 140%; }
+
+/* ---- Enhanced mobile tweaks ---- */
+@media (max-width: 768px) {
+    .page-header.hero-enhanced { min-height: calc(56 * var(--vh)); padding: 7rem 5% 3rem !important; }
+    .service-card.enhanced { min-height: 350px; }
+    .service-card.enhanced .card-inner { padding: 2.2rem 1.6rem; }
+    .eq-divider { height: 50px; }
+    .section-head { margin-bottom: 2.6rem; }
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+    .wave-canvas, .process-scan, .hero-glow, .icon-ring::before, .eq-bar, .marquee-track { display: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    .hero-title h1 { transform: none !important; }
+    .hero-sub, .hero-kicker { opacity: 1 !important; }
+    .service-card.enhanced { transform: none !important; }
+}
+
+
+        /* Nav: Contact link + Get a Quote button */
+        .nav-links { align-items: center; }
+        .nav-links a { white-space: nowrap; }
+        .nav-links a.nav-quote {
+            border: 1px solid var(--accent);
+            padding: 0.6rem 1.2rem;
+            letter-spacing: 0.15em;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .nav-links a.nav-quote:hover {
+            background: var(--accent);
+            color: var(--bg-secondary);
+            opacity: 1;
+        }
+        @media (max-width: 1699px) and (min-width: 1400px) {
+            .nav-links { gap: 1.2rem; }
+            .nav-links a { letter-spacing: 0.08em; }
+        }
+        @media (max-width: 1399px) and (min-width: 993px) {
+            .nav-links { gap: 1.1rem; }
+            .nav-links a { font-size: 0.7rem; letter-spacing: 0.06em; }
+            .nav-links a.nav-quote { padding: 0.55rem 0.9rem; letter-spacing: 0.1em; }
+            .nav-links .nav-contact { display: none; }
+            .logo-img { height: 40px; }
+        }
+        @media (max-width: 1149px) and (min-width: 993px) {
+            .nav-links { gap: 0.7rem; }
+            .nav-links a { font-size: 0.65rem; letter-spacing: 0.04em; }
+            .nav-links a.nav-quote { padding: 0.45rem 0.7rem; }
+            .nav-lang .lang-current, .nav-lang .lang-sep { font-size: 0.65rem; }
+            .logo-img { height: 34px; }
+        }
+        @media (max-width: 992px) {
+            .nav-item.nav-quote-item { border-bottom: none !important; margin-top: 1.2rem; }
+            .nav-links a.nav-quote {
+                justify-content: center !important;
+                text-align: center !important;
+                border: 1px solid #ffffff !important;
+                padding: 0.85rem 1rem !important;
+            }
+        }
+
+/* Compact headings (2026-10-03): page-title banners and section headings ~30{'top': '6rem', 'h2': '.section-header h2, .include-header h2, .cta-band h2, .notes-inner > h2, .gallery-section > h2, .deployments-head h2, .range-header h2, .principle-text h2, .principle-box h2, .about-text h2, .guarantee-header h2, .section-head h2, .process-header h2, .specs-section h2, .details-section h2'}maller */
+.page-header { padding-top: 6rem !important; padding-bottom: 1.5rem !important; }
+.page-header h1 { font-size: 2.1rem !important; margin-bottom: 0.6rem !important; }
+.page-header.hero-enhanced { min-height: calc(44 * var(--vh)) !important; padding: 7.5rem 5% 4rem !important; }
+.hero-title h1 { font-size: clamp(1.5rem, calc(3.5 * var(--vw)), 2.5rem) !important; }
+.section-header h2, .include-header h2, .cta-band h2, .notes-inner > h2, .gallery-section > h2, .deployments-head h2, .range-header h2, .principle-text h2, .principle-box h2, .about-text h2, .guarantee-header h2, .section-head h2, .process-header h2, .specs-section h2, .details-section h2 { font-size: 1.4rem !important; }
+@media (max-width: 768px) {
+    .page-header { padding-top: 5.5rem !important; padding-bottom: 1.4rem !important; }
+    .page-header h1, .hero-title h1 { font-size: 1.25rem !important; }
+    .page-header.hero-enhanced { min-height: calc(40 * var(--vh)) !important; padding: 6rem 5% 2.5rem !important; }
+    .section-header h2, .include-header h2, .cta-band h2, .notes-inner > h2, .gallery-section > h2, .deployments-head h2, .range-header h2, .principle-text h2, .principle-box h2, .about-text h2, .guarantee-header h2, .section-head h2, .process-header h2, .specs-section h2, .details-section h2 { font-size: 1.2rem !important; }
+}
+
+/* Language switcher (EN / SL) */
+.nav-links .nav-lang { display: flex; align-items: center; gap: 0.35rem; }
+.nav-lang .lang-current { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; color: #ffffff; }
+.nav-lang .lang-sep { font-size: 0.8rem; color: #555555; }
+.nav-links .nav-lang a.lang-switch { color: #999999; }
+.nav-links .nav-lang a.lang-switch:hover { color: #ffffff; opacity: 1; }
+@media (max-width: 1399px) and (min-width: 993px) {
+    .nav-lang .lang-current, .nav-lang .lang-sep { font-size: 0.7rem; }
+}
+@media (max-width: 992px) {
+    .nav-links .nav-item.nav-lang { justify-content: center; gap: 0.6rem; padding: 1rem 0 !important; border-bottom: none !important; }
+    .nav-links .nav-lang a.lang-switch { display: inline !important; padding: 0 !important; min-height: 0 !important; color: #999999 !important; }
+}
+</style>
+    <style>
+    /* Reserve the scrollbar so the zoom factor never changes when a page scrolls. */
+    :root.ui-scaled { scrollbar-gutter: stable; }
+    /* Home hero: at least one window tall, but never shorter than its content, so a
+       short or zoomed window can't push the badge and headline under the fixed nav.
+       Equal top/bottom padding keeps the content centred where it was. */
+    :root.ui-scaled .hero { height: auto; min-height: calc(100 * var(--vh)); padding-top: 110px; padding-bottom: 110px; box-sizing: border-box; }
+    /* Footer bottom links wrap instead of running off narrow windows. */
+    :root.ui-scaled .footer-bottom-links { flex-wrap: wrap; justify-content: center; row-gap: 0.4rem; }
+    /* Services hero title: room for the glyphs inside its slide-in clipping frame. */
+    :root.ui-scaled .hero-title { padding: 0.08em 0 0.12em; }
+    </style>
+    <script>
+    (function () {
+        if (!document.documentElement.__scaled1920) return;     // phones: untouched
+        var W = 1920;
+        function widthOnly(text) {
+            return /\((?:min|max)-width:\s*\d+px\)/.test(text) &&
+                !/,|\b(?:not|only|print)\b|(?:min|max)-(?!width)|orientation|hover|pointer|resolution/.test(text);
+        }
+        function matchesAt(text) {
+            var lo = 0, hi = 1e9, re = /\((min|max)-width:\s*(\d+)px\)/g, m;
+            while ((m = re.exec(text))) {
+                if (m[1] === 'min') lo = Math.max(lo, +m[2]); else hi = Math.min(hi, +m[2]);
+            }
+            return lo <= W && W <= hi;
+        }
+        function walk(rules) {
+            for (var i = 0; i < rules.length; i++) {
+                var r = rules[i];
+                if (r.media && r.cssRules) {
+                    var t = r.media.mediaText;
+                    if (widthOnly(t)) r.media.mediaText = matchesAt(t) ? 'all' : 'not all';
+                    walk(r.cssRules);
+                }
+            }
+        }
+        for (var s = 0; s < document.styleSheets.length; s++) {
+            try { walk(document.styleSheets[s].cssRules); } catch (e) { /* cross-origin sheet (fonts) */ }
+        }
+    })();
+    </script>
+</head>
+<body>
+
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="../images/logo.png" alt="D&A Innovations" class="logo-img"></a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links">
+            <li class="nav-item"><a href="index.html">Domov</a></li>
+            <li class="nav-item">
+                <a href="products.html">Izdelki</a>
+                <div class="dropdown">
+                    <a href="products.html#point-source">Point source</a>
+                    <a href="products.html#entry-horns">Multiple entry horni</a>
+                    <a href="products.html#servo-subs">Subwooferji</a>
+                    <a href="products.html#amplification">Ojačevalniki</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="applications.html">Uporaba</a></li>
+            <li class="nav-item"><a href="services.html" class="active">Storitve</a></li>
+            <li class="nav-item"><a href="buy.html">Nakup</a></li>
+            <li class="nav-item">
+                <a href="rent.html">Najem</a>
+                <div class="dropdown">
+                    <a href="rent.html#custom-rental-systems">Sistemi za najem po meri</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="gallery.html">Galerija</a>
+                <div class="dropdown">
+                    <a href="gallery.html#system-gallery">Galerija sistemov</a>
+                    <a href="gallery.html#event-gallery">Galerija dogodkov in videi</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="about.html">O nas</a></li>
+            <li class="nav-item nav-contact"><a href="contact.html">Kontakt</a></li>
+            <li class="nav-item nav-quote-item"><a href="contact.html" class="nav-quote">Zahtevajte ponudbo</a></li>
+            <li class="nav-item nav-lang"><a href="../services.html" class="lang-switch" hreflang="en" lang="en" aria-label="English">EN</a><span class="lang-sep" aria-hidden="true">/</span><span class="lang-current" aria-current="true">SL</span></li>
+        </ul>
+    </nav>
+
+    <header class="page-header hero-enhanced">
+        <canvas class="wave-canvas" id="waveCanvas" aria-hidden="true"></canvas>
+        <div class="hero-grid-overlay" aria-hidden="true"></div>
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="page-header-content">
+            <span class="hero-kicker"><span class="dot"></span> Inženirski laboratorij D&amp;A &mdash; Ljubljana</span>
+            <div class="hero-title">
+                <h1>Akustične inženirske storitve</h1>
+            </div>
+            <p class="hero-sub">Poleg standardnih izdelkov D&A Innovations ponuja celovite inženirske storitve, s katerimi uresničimo tudi vaše najzahtevnejše akustične projekte.</p>
+        </div>
+    </header>
+
+    <!-- Capability marquee -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track" id="marqueeTrack">
+            <span class="marquee-item">Analiza končnih elementov</span>
+            <span class="marquee-item">5-osna CNC obdelava</span>
+            <span class="marquee-item">FIR fazna korekcija</span>
+            <span class="marquee-item">Preverjanje v gluhi sobi</span>
+            <span class="marquee-item">Načrtovanje folded hornov</span>
+            <span class="marquee-item">Ohišja po meri</span>
+            <span class="marquee-item">DSP umerjanje</span>
+        </div>
+    </div>
+
+    <section class="services-section">
+        <div class="section-head reveal">
+            <span class="kicker">Kaj delamo</span>
+            <h2>Akustični inženiring v celotnem spektru</h2>
+        </div>
+        <div class="grid">
+            <article class="service-card enhanced reveal tilt" style="--delay:.05s">
+                <div class="card-media" style="background-image:url('../images/system-stack-low-angle.jpg')"></div>
+                <div class="card-glow"></div>
+                <div class="card-inner">
+                    <div class="icon-ring">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Akustično CAD načrtovanje</h3>
+                    <p>Napredno CAD modeliranje in akustične simulacije, s katerimi delovanje sistema v kateremkoli okolju predvidimo, še preden izdelamo prvi sestavni del.</p>
+                    <span class="card-link">Več <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                </div>
+            </article>
+
+            <article class="service-card enhanced reveal tilt" style="--delay:.12s">
+                <div class="card-media" style="background-image:url('../images/system-stack-wide-bass-horns.jpg')"></div>
+                <div class="card-glow"></div>
+                <div class="card-inner">
+                    <div class="icon-ring">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3>Izdelava po meri</h3>
+                    <p>Izdelava zvočnikov in ohišij po meri. Vsak sistem po meri naši mojstri ročno sestavijo z natančnimi tolerancami.</p>
+                    <span class="card-link">Več <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                </div>
+            </article>
+
+            <article class="service-card enhanced reveal tilt" style="--delay:.19s">
+                <div class="card-media" style="background-image:url('../images/system-stack-front.jpg')"></div>
+                <div class="card-glow"></div>
+                <div class="card-inner">
+                    <div class="icon-ring">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 10s3-3 5-3 5 6 7 6 7-6 8-6"></path>
+                            <line x1="2" y1="18" x2="22" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h3>Umerjanje sistema</h3>
+                    <p>Profesionalno DSP uglaševanje in akustične meritve na lokaciji. Poskrbimo, da je vaš sistem popolnoma usklajen z vašim prostorom za poslušanje.</p>
+                    <span class="card-link">Več <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                </div>
+            </article>
+
+            <article class="service-card enhanced reveal tilt" style="--delay:.26s">
+                <div class="card-media" style="background-image:url('../images/system-stack-wide-bass-horns.jpg')"></div>
+                <div class="card-glow"></div>
+                <div class="card-inner">
+                    <div class="icon-ring">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                    </div>
+                    <h3>Strokovno svetovanje</h3>
+                    <p>Neposreden dostop do naših izkušenih inženirjev za velike komercialne projekte, vrhunske domače kinodvorane in načrtovanje studiev.</p>
+                    <span class="card-link">Več <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Equalizer divider -->
+    <div class="eq-divider" id="eqDivider" aria-hidden="true"></div>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="process-scan" aria-hidden="true"></div>
+        <div class="process-container">
+            <div class="process-header reveal">
+                <span class="process-kicker">Inženirska metodologija</span>
+                <h2>Življenjski cikel projekta po meri</h2>
+            </div>
+            <div class="process-grid">
+                <div class="process-card reveal">
+                    <div class="process-num">01</div>
+                    <h3>Simulacije in modeliranje</h3>
+                    <p>Analiza po metodi končnih elementov (FEA) in robne simulacije grl hornov, geometrij odprtin in odbojev v prostoru.</p>
+                </div>
+                <div class="process-card reveal">
+                    <div class="process-num">02</div>
+                    <h3>Natančna CNC izdelava</h3>
+                    <p>5-osna CNC obdelava večslojne baltske brezove vezane plošče s submilimetrsko natančnostjo in notranjimi spoji.</p>
+                </div>
+                <div class="process-card reveal">
+                    <div class="process-num">03</div>
+                    <h3>Preverjanje v gluhi sobi</h3>
+                    <p>Preverjanje impulznega odziva v visoki ločljivosti, polarne usmerjenosti in impedančne krivulje v našem testnem laboratoriju v Ljubljani.</p>
+                </div>
+                <div class="process-card reveal">
+                    <div class="process-num">04</div>
+                    <h3>DSP umerjanje na lokaciji</h3>
+                    <p>Namestitev namenskih FIR filtrov za fazno korekcijo in pragov termičnih limiterjev, umerjenih točno za vaš akustični prostor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Call to Action -->
+    <section class="services-cta-bar">
+        <div class="services-cta-box reveal">
+            <h3>Ste pripravljeni na svoj akustični projekt?</h3>
+            <p>Posvetujte se neposredno z našimi izkušenimi inženirji v Ljubljani o načrtovanju hornov po meri, studijskih monitorjih po meri ali zvočni infrastrukturi za turneje.</p>
+            <a href="contact.html" class="btn-cta">Začnite inženirsko svetovanje</a>
+        </div>
+    </section>
+
+
+        
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <a href="index.html" class="footer-brand-link">
+                    <img src="../images/logo.png" alt="D&A Innovations" class="footer-logo-img" loading="lazy">
+                </a>
+                <p class="footer-tagline">Natančni point-source zvočniki, multiple entry horni in subwooferji, razviti v Ljubljani.</p>
+                <div class="footer-status">
+                    <span class="status-dot"></span> Laboratorij za zvočniške sisteme
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Zvočniški sistemi</h4>
+                <ul class="footer-menu">
+                    <li><a href="products.html">Vsi izdelki</a></li>
+                    <li><a href="products.html#point-source">Point source</a></li>
+                    <li><a href="products.html#entry-horns">Multiple entry horni</a></li>
+                    <li><a href="products.html#servo-subs">Subwooferji</a></li>
+                    <li><a href="products.html#amplification">Ojačevalniki in DSP</a></li>
+                    <li><a href="technology.html">Tehnologija</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Storitve in rešitve</h4>
+                <ul class="footer-menu">
+                    <li><a href="services.html">Akustični CAD in simulacije</a></li>
+                    <li><a href="services.html">Izdelava po meri</a></li>
+                    <li><a href="services.html">DSP uglaševanje in umerjanje</a></li>
+                    <li><a href="applications.html">Pro audio in kino</a></li>
+                    <li><a href="rent.html">Najem sistemov</a></li>
+                    <li><a href="gallery.html">Galerija in dogodki</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Povpraševanja</h4>
+                <ul class="footer-menu">
+                    <li><a href="buy.html">Nakup in neposredna naročila</a></li>
+                    <li><a href="about.html">O nas in laboratoriju</a></li>
+                    <li><a href="contact.html">Kontaktirajte inženirje</a></li>
+                    <li><a href="faq.html">Tehnična vprašanja</a></li>
+                    <li><a href="downloads.html">Tehnični listi za prenos</a></li>
+                    <li><a href="mailto:info@dainnovations.com" class="footer-email">info@dainnovations.com</a></li>
+                </ul>
+                <div class="footer-location">
+                    <span>Lokacija laboratorija:</span>
+                    <p>Ljubljana, Slovenija, EU</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p class="footer-copy">&copy; 2026 D&A Innovations. Vse pravice pridržane.</p>
+                <div class="footer-bottom-links">
+                    <a href="index.html">Domov</a>
+                    <span class="sep">&middot;</span>
+                    <a href="products.html">Izdelki</a>
+                    <span class="sep">&middot;</span>
+                    <a href="services.html">Storitve</a>
+                    <span class="sep">&middot;</span>
+                    <a href="gallery.html">Galerija</a>
+                    <span class="sep">&middot;</span>
+                    <a href="contact.html">Kontakt</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    <script>
+    (function() {
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        if (!menuToggle || !navLinks) return;
+
+        function toggleMenu(open) {
+            const isOpen = typeof open === 'boolean' ? open : !navLinks.classList.contains('active');
+            navLinks.classList.toggle('active', isOpen);
+            menuToggle.classList.toggle('active', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Close menu when tapping any navigation link
+        navLinks.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                toggleMenu(false);
+            });
+        });
+
+        // Close menu when tapping outside
+        document.addEventListener('click', function(e) {
+            if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                toggleMenu(false);
+            }
+        });
+
+        // Close menu on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                toggleMenu(false);
+            }
+        });
+    })();
+    </script>
+
+    <script>
+    (function() {
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        /* ---- Scroll progress bar ---- */
+        var progress = document.getElementById('scrollProgress');
+        function updateProgress() {
+            if (!progress) return;
+            var h = document.documentElement;
+            var max = h.scrollHeight - h.clientHeight;
+            var top = h.scrollTop || document.body.scrollTop || 0;
+            var ratio = max > 0 ? top / max : 0;
+            progress.style.transform = 'scaleX(' + Math.min(1, Math.max(0, ratio)) + ')';
+        }
+
+        /* ---- Reveal on scroll ---- */
+        var revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window && !reduce) {
+            var io = new IntersectionObserver(function(entries) {
+                entries.forEach(function(e) {
+                    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+            revealEls.forEach(function(el) { io.observe(el); });
+        } else {
+            revealEls.forEach(function(el) { el.classList.add('visible'); });
+        }
+
+        /* ---- Marquee seamless loop ---- */
+        var track = document.getElementById('marqueeTrack');
+        if (track) { track.innerHTML += track.innerHTML; }
+
+        /* ---- Equalizer bars ---- */
+        var eq = document.getElementById('eqDivider');
+        if (eq && !reduce) {
+            var html = '';
+            for (var i = 0; i < 60; i++) {
+                var d = (Math.random() * 0.9).toFixed(2);
+                var du = (0.7 + Math.random() * 0.9).toFixed(2);
+                html += '<span class="eq-bar" style="animation-delay:-' + d + 's;animation-duration:' + du + 's"></span>';
+            }
+            eq.innerHTML = html;
+        }
+
+        /* ---- Card 3D tilt + cursor glow ---- */
+        var finePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        if (!reduce && finePointer) {
+            document.querySelectorAll('.tilt').forEach(function(card) {
+                card.addEventListener('mouseenter', function() { card.style.setProperty('--ty', '-6px'); });
+                card.addEventListener('mousemove', function(ev) {
+                    var r = card.getBoundingClientRect();
+                    if (!r.width || !r.height) return;
+                    var px = (ev.clientX - r.left) / r.width;
+                    var py = (ev.clientY - r.top) / r.height;
+                    card.style.setProperty('--rx', ((0.5 - py) * 7).toFixed(2) + 'deg');
+                    card.style.setProperty('--ry', ((px - 0.5) * 8).toFixed(2) + 'deg');
+                    card.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+                    card.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+                });
+                card.addEventListener('mouseleave', function() {
+                    card.style.setProperty('--rx', '0deg');
+                    card.style.setProperty('--ry', '0deg');
+                    card.style.setProperty('--ty', '0px');
+                });
+            });
+        }
+
+        /* ---- Hero waveform canvas ---- */
+        var canvas = document.getElementById('waveCanvas');
+        if (canvas && canvas.getContext && !reduce) {
+            var ctx = canvas.getContext('2d');
+            var dpr = Math.min(window.devicePixelRatio || 1, 2);
+            var w = 0, hgt = 0, phase = 0, rafId = null, running = true;
+
+            function resize() {
+                var rect = canvas.getBoundingClientRect();
+                w = rect.width; hgt = rect.height;
+                canvas.width = Math.max(1, Math.floor(w * dpr));
+                canvas.height = Math.max(1, Math.floor(hgt * dpr));
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+            function drawWave(amp, freq, speed, alpha, yOff) {
+                ctx.beginPath();
+                for (var x = 0; x <= w; x += 6) {
+                    var t = x / (w || 1);
+                    var env = Math.sin(Math.PI * t);
+                    var y = hgt * yOff
+                        + Math.sin(x * freq + phase * speed) * amp * env
+                        + Math.sin(x * freq * 0.5 + phase * speed * 1.3) * amp * 0.4 * env;
+                    if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+                }
+                ctx.strokeStyle = 'rgba(255,255,255,' + alpha + ')';
+                ctx.lineWidth = 1.2;
+                ctx.stroke();
+            }
+            function frame() {
+                if (!running) return;
+                ctx.clearRect(0, 0, w, hgt);
+                drawWave(hgt * 0.10, 0.012, 1.0, 0.16, 0.50);
+                drawWave(hgt * 0.07, 0.018, 1.4, 0.11, 0.42);
+                drawWave(hgt * 0.06, 0.024, 0.8, 0.09, 0.60);
+                phase += 0.02;
+                rafId = requestAnimationFrame(frame);
+            }
+            resize();
+            frame();
+            window.addEventListener('resize', resize);
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) { running = false; if (rafId) cancelAnimationFrame(rafId); }
+                else if (!running) { running = true; frame(); }
+            });
+        }
+
+        /* ---- Scroll listener ---- */
+        var ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() { updateProgress(); ticking = false; });
+                ticking = true;
+            }
+        }, { passive: true });
+        updateProgress();
+    })();
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

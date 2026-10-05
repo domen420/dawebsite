@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://domen420.github.io/dainnovations/sitemap.xml
